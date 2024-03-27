@@ -11,7 +11,7 @@ function App() {
     <>
     <Navbar/>
        <Routes>
-        <Route path='/auth' element={<RegisterPage/>}/>
+        <Route path='/auth' element={<RegisterPage />}/>
         <Route path='/property' element={<Property />} />
       </Routes> 
     </>

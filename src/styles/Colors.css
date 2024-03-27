@@ -13,6 +13,9 @@
 .txt-black {
     color: #000;
 }
+.txt-primary{
+    color: #072655; 
+}
 
 .bg-primary{
     background-color: #072655;

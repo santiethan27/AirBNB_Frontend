@@ -13,7 +13,11 @@ function Register ({handleToggle}) {
 
     return(
                 <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-                    <h1>Registrarse</h1>
+                    <div className="logo-form">
+                        <img src="../../public/hogar.png" className='cursor-pointer' />
+                        <h2 className='txt-black'>AIRBNB</h2>
+                    </div>
+                    <h1 className="txt-primary">Registrarse</h1>
                 <div className="g-input">
                     <input type="email" placeholder="Email"{...register('email', {required: true})}
                     />{errors.email && (<p className="error-message">Este es campo es requerido</p>)}
@@ -43,7 +47,7 @@ function Register ({handleToggle}) {
                     </div>
                 </div>
                 <div className="options">
-                    <a onClick={handleToggle}>¿Ya tienes cuenta?</a><a href="">¿Olvidaste tu contraseña?</a>
+                    <a href="#" className="txt-primary" onClick={handleToggle}>¿Ya tienes cuenta?</a><a href="" className="txt-primary">¿Olvidaste tu contraseña?</a>
                 </div>
                     <button className="bg-primary" type="submit">Registrarse</button>
                 </form>

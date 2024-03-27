@@ -19,9 +19,15 @@ const Navbar = () => {
                     <NavLink to={'/Property'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Propiedad</NavLink>
                 </ul>
             </div>
-            <div>
-                <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
-            </div>
+            
+                <div className='user'>
+                    <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
+                    <div className="menu">
+                        <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Registrarse</NavLink>  
+                    </div>
+                </div>
+            
+            
         </nav>
     )
 }

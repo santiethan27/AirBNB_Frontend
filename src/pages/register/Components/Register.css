@@ -25,18 +25,19 @@
 }
 .form{
     width: 50%;
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-form{
-    width: 95%;
+    border-radius: 20px;
 }
 form h1{
     margin-bottom: 30px;
-    color: var(--color-primario);
     font-size: 50px;
     text-align: center;
+}
+.logo-form{
+    display: flex;
+    width: 10%;
 }
 form input{
     border: none;
@@ -86,7 +87,6 @@ form .g-input{
     flex: 1;
 }
 .options{
-    color: var(--color-primario);
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
@@ -109,7 +109,6 @@ form .g-input{
         gap: 8px;
     }
     .register-form button {
-        background-color: var(--color-primario);
         color: #fff;
         width: 100%;
         height: 40px;

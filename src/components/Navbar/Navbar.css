@@ -21,4 +21,11 @@ nav{
             }
         }
     }
+    .menu {
+        display: none; /* Oculta el menú inicialmente */
+    }
+    
+    .user:hover .menu {
+        display: block; /* Muestra el menú cuando se hace clic en el ícono */
+    }
 }
