@@ -23,7 +23,7 @@ function Login ({handleToggle}){
                 <div className="options">
                     <a href="#" onClick={handleToggle}>¿Ya tienes cuenta?</a><a href="">¿Olvidaste tu contraseña?</a>
                 </div>
-                    <button type="submit">Iniciar sesion</button>  
+                    <button className="bg-primary" type="submit">Iniciar sesion</button>  
                 </form>
     )
 

@@ -28,7 +28,7 @@ function Property() {
   ];
 
   return (
-    <div className='container'>
+    <div className='container_property'>
         <h1>Apartamentos con  hermosas vistas al bosques.</h1>
         <div className='Img'>
             <img src="/public/img/images_property.jpg" className='img-firts' alt="Frist images"/>

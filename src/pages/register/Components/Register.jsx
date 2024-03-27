@@ -45,7 +45,7 @@ function Register ({handleToggle}) {
                 <div className="options">
                     <a onClick={handleToggle}>¿Ya tienes cuenta?</a><a href="">¿Olvidaste tu contraseña?</a>
                 </div>
-                    <button type="submit">Registrarse</button>
+                    <button className="bg-primary" type="submit">Registrarse</button>
                 </form>
     )
 }

@@ -10,7 +10,7 @@
     --color-terceario:#FFFFFF;
     --color-cuartario:#000000;
   }
-.container h1,h2{
+.container_property h1,h2{
     color:var(--color-cuartario);
     margin-left: 2.6%;
     margin-top: 1%; 
@@ -48,8 +48,7 @@
     margin-left: 2%;
     margin-right: 1%; 
     margin-top: 2%; 
-  }
-
+}
 .start{
     display: flex;
     flex-direction: row-reverse;
@@ -58,7 +57,7 @@
     margin-top: -2%;
     height: 10%;
 }
-p{
+.container_property p{
     color: var(--color-cuartario);
 }
 .userPhone{
@@ -167,7 +166,7 @@ button{
 .button{
     height: 15%;
 }
-input{
+.commit input{
     height: 50%;
     width: 98%;
     border-radius: 10px;
