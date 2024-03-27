@@ -12,7 +12,7 @@ function Register ({handleToggle}) {
 
 
     return(
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
                     <h1>Registrarse</h1>
                 <div className="g-input">
                     <input type="email" placeholder="Email"{...register('email', {required: true})}

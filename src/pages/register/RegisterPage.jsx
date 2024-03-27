@@ -11,7 +11,7 @@ function RegisterPage() {
     }
   return (
     <div className="body-auth">
-    <div className="container">
+    <div className="container-register">
     <div className={`form ${showLogin ? 'login' : ''}`}>
         {showLogin ? <Login handleToggle={handleToggle}/> : <Register handleToggle={handleToggle}/>}
     </div>

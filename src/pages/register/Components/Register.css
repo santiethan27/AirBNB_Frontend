@@ -15,7 +15,7 @@
     position: absolute;
 }
 
-.container{
+.container-register{
     display: flex;
     width: 90%;
     min-height: 80vh;
@@ -55,7 +55,7 @@ form input{
 .nested input{
     margin: 5px;
 }
-button{
+.register-form button{
     color: #fff;
     width: 100%;
     border: none;
@@ -66,10 +66,10 @@ button{
     transition: background-color 0.3s ease;
     font-size: 16px;
 }
-button:hover{
+.register-form button:hover{
     background-color: var(--color-secundario);
 }
-img{
+.body-auth img{
     width: 50%;
     object-fit: cover;
     margin: 3px;
@@ -99,7 +99,7 @@ form .g-input{
     .form {
         width: 100%; 
     }
-    .container {
+    .container-register {
         display: flex;
         flex-wrap: wrap; 
     }
@@ -108,7 +108,7 @@ form .g-input{
         flex-direction: column;
         gap: 8px;
     }
-    button {
+    .register-form button {
         background-color: var(--color-primario);
         color: #fff;
         width: 100%;
@@ -118,7 +118,7 @@ form .g-input{
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
-    img {
+    .body-auth img {
         width: 100%;
         height: auto;
         margin: 3px;
