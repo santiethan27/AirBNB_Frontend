@@ -13,9 +13,10 @@ const Navbar = () => {
             </div>
             <div>
                 <ul>
-                    <NavLink to={'/'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Rentar</NavLink>
+                    <NavLink to={'/rentar'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Rentar</NavLink>
                     <NavLink to={'/comprar'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Comprar</NavLink>
                     <NavLink to={'/blog'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Blog</NavLink>
+                    <NavLink to={'/Property'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Propiedad</NavLink>
                 </ul>
             </div>
             <div>
@@ -25,4 +26,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Navbar;
