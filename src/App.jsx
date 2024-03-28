@@ -1,12 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer'
-import HomPage from './page/home/Home/HomPage';
-import ErrorPage from './page/Error/ErrorPage';
-import Property from './components/Property/Property';
-import RegisterPage from './pages/register/RegisterPage';
+
 import './App.css'
+import HomPage from './pages/Home/HomPage';
+import RegisterPage from './pages/Auth/RegisterPage';
+import ErrorPage from './pages/Error/ErrorPage';
+import Property from './components/Property/Property';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (

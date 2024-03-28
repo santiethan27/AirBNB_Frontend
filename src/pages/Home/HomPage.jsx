@@ -9,16 +9,16 @@ const HomPage = () => {
     return (
         <div>
             <header>
-                <section>
+                <section >
                     <h2>Encuentra tu próxima estancia</h2>
                     <h3>Busca ofertas en hoteles, casas y mucho más...</h3>
                     <div className='selector-option'>
-                        <input type="text" />
+                        <input type="text"/>
                         <ListBox />
                     </div>
                 </section>
                 <section>
-                    <img src="/HeaderHome.png" alt="Imagen del header relacionada con viaje" />
+                    <img src="/img/HeaderHome.png" alt="Imagen del header relacionada con viaje" />
                 </section>
             </header>
             <main>

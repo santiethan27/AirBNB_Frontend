@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const Carrusel = () => {
-    const Imagen = '/Unplash2.jpg';
+    const Imagen = '/img/Unplash2.jpg';
     const N = 10
     const imagenRepetir = Array(N).fill(Imagen)
     return (

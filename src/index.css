@@ -5,7 +5,7 @@
   font-size: 16px;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: hwb(0 100% 0% / 0.87);
 
 
   font-synthesis: none;
@@ -17,7 +17,7 @@
   --color-black: #000;
   --color-Oxford_Blue: #072655;
   --color-Internal_Klein: #1c31a5;
-  --color-black-degradate: #07265535;
+  --color-black-degradate: #191f28;
   --color-black-descriptions: #00000086;
 }
 html{

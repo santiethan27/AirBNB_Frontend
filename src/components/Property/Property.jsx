@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './Property.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import './Property.css';
 
 function Property() {
   const [date, setDate] = useState(new Date());
@@ -17,26 +17,16 @@ function Property() {
     setShowImageList(!showImageList); 
   };
 
-  
-  const imageUrls = [
-    "/public/img/images_property.jpg",
-    "/public/img/images_property.jpg",
-    "/public/img/images_property.jpg",
-    "/public/img/images_property.jpg",
-    "/public/img/images_property.jpg",
-    "/public/img/images_property.jpg",
-  ];
-
   return (
     <div className='container_property'>
         <h1>Apartamentos con  hermosas vistas al bosques.</h1>
         <div className='Img'>
-            <img src="/public/img/images_property.jpg" className='img-firts' alt="Frist images"/>
+            <img src="/img/images_property.jpg" className='img-firts' alt="Frist images"/>
             <div className='img_F'>
-                <img src="/public/img/images_property.jpg" className='Second_images' alt="Second images"/>
-                <img src="/public/img/images_property.jpg" className='Third_images' alt="Third_images"/>
-                <img src="/public/img/images_property.jpg" alt="Fourth images" />
-                <img src="/public/img/images_property.jpg" alt="Fifth images" onClick={handleLastImageClick} 
+                <img src="/img/images_property.jpg" className='Second_images' alt="Second images"/>
+                <img src="/img/images_property.jpg" className='Third_images' alt="Third_images"/>
+                <img src="/img/images_property.jpg" alt="Fourth images" />
+                <img src="/img/images_property.jpg" alt="Fifth images" onClick={handleLastImageClick} 
                 className="last-image"
                 />
             </div> 
@@ -59,7 +49,7 @@ function Property() {
             <p>4.5 (54 RESEÑAS)</p>
         </div>
         <div className='userPhone'>
-            <img src="/public/img/userPhone.jpg" alt="Imagen de usuario" className='userP' />
+            <img src="/img/userPhone.jpg" alt="Imagen de usuario" className='userP' />
             <p className='nameU'>Izuwashere</p>
             <p className='roL'>PROPIETARIO</p>
         </div>
