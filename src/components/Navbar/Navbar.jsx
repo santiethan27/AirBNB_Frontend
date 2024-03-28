@@ -13,16 +13,23 @@ const Navbar = () => {
             </div>
             <div>
                 <ul>
-                    <NavLink to={'/'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Rentar</NavLink>
+                    <NavLink to={'/rentar'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Rentar</NavLink>
                     <NavLink to={'/comprar'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Comprar</NavLink>
                     <NavLink to={'/blog'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Blog</NavLink>
+                    <NavLink to={'/Property'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Propiedad</NavLink>
                 </ul>
             </div>
-            <div>
-                <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
-            </div>
+            
+                <div className='user'>
+                    <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
+                    <div className="menu">
+                        <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Registrarse</NavLink>  
+                    </div>
+                </div>
+            
+            
         </nav>
     )
 }
 
-export default Navbar
+export default Navbar;

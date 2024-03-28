@@ -1,0 +1,175 @@
+*{
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --color-primario: #072655;
+    --color-secundario: #1C31A5;
+    --color-terceario:#FFFFFF;
+    --color-cuartario:#000000;
+  }
+.container_property h1,h2{
+    color:var(--color-cuartario);
+    margin-left: 2.6%;
+    margin-top: 1%; 
+}
+.container .Img{
+    display: flex;
+    width: 100%;
+}
+.container{
+    .img-firts{
+    width: 50%;
+    border-radius: 10px;
+    margin-left: 2%; 
+    }
+    .Second_images{
+        margin-top: 0%;
+    }
+    .Third_images{
+        margin-top: 0%;
+    }
+}
+.img_F {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    img{
+        width: 45%;
+        margin-left: 3%;
+        border-radius: 10px;
+         margin-top: 5%;
+    }
+}
+.img_F .item img {
+    width: 30%; 
+    margin-left: 2%;
+    margin-right: 1%; 
+    margin-top: 2%; 
+}
+.start{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 95%;
+    align-items: center;
+    margin-top: -2%;
+    height: 10%;
+}
+.container_property p{
+    color: var(--color-cuartario);
+}
+.userPhone{
+    width: 10%;
+    .userP{
+        width: 50%;
+        margin-left: 25%;
+        margin-top: 10%;
+        border-radius: 50%;
+    }
+}
+.nameU{
+    margin-top: -45%; margin-left: 80%;
+}
+.roL{
+    margin-left: 80%;
+}
+.Comentari{
+    width: 90%;
+    margin-left: 2.5%;
+    margin-top: 1%;
+}
+.se{
+    margin-left: 2.5%;
+}
+.Reserva h1{
+    color: var(--color-primario);
+    
+}
+.Reserva{
+    margin-left: 2.5%;
+}
+/* Estilos para el contenedor del calendario */
+.calendar-container {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 40%;
+  }
+  /* Estilos personalizados para el calendario */
+  .custom-calendar {
+    max-width: 300px;
+    border: 2px solid var(--color-cuartario);
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    color: var(--color-cuartario); 
+  }
+  /* Estilos para los días de la semana */
+  .react-calendar__month-view__weekdays {
+    font-weight: bold;
+    background-color: var(--color-terceario); 
+  }
+  /* Estilos para los días de la semana - texto */
+  .react-calendar__month-view__weekdays__weekday {
+    color: var(--color-cuartario); 
+  }
+  /* Estilos para los días del calendario */
+  .react-calendar__tile {
+    padding: 10px;
+  }
+  /* Estilos para los días seleccionados */
+  .react-calendar__tile--active {
+    background-color: var(--color-secundario);
+    color: var(--color-terceario);
+  }
+  /* Estilos para los números de los días */
+  .react-calendar__tile abbr {
+    color: var(--color-cuartario);
+  }
+  /* Estilos para los nombres de los meses */
+  .react-calendar__navigation__label__labelText {
+    color: var(--color-cuartario); 
+  }
+  /* Estilos para las flechas de navegación */
+  .react-calendar__navigation button {
+    color: var(--color-cuartario); 
+  }
+.options{
+    display: flex;
+    margin-bottom: 2%;
+}
+.commit{
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 60%;   
+}
+.commit p{
+    margin-bottom: 1%;
+    font-weight: bold;
+}
+.commit div{
+    display: flex;
+    
+}
+.commit div p{
+    margin-right: 10%;  
+}
+.change{
+    color: var(--color-primario);
+}
+button{
+    background-color: var(--color-primario);
+    margin-top: 1%;
+    border-radius: 7px;
+    width: 20%;
+}
+.button{
+    height: 15%;
+}
+.commit input{
+    height: 50%;
+    width: 98%;
+    border-radius: 10px;
+    border: 1px solid var(--color-primario);
+    color: var(--color-cuartario);
+}
