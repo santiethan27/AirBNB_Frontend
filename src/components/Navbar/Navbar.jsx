@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
         <nav className='bg-white'>
             <div className='cursor-pointer' to={'/'}>
-                <img src="../../public/hogar.png" alt="Imagen logo AIRBNB" className='cursor-pointer' />
+                <img src="/hogar.png" alt="Imagen logo AIRBNB" className='cursor-pointer' />
                 <h2 className='txt-black'>AIRBNB</h2>
             </div>
             <div>

@@ -1,31 +1,31 @@
 .bg-white {
-    background-color: #ffff;
+    background-color: var(--color-white);
 }
 
 .txt-white {
-    color: #ffff;
+    color: var(--color-white);
 }
 
 .bg-black {
-    background-color: #000;
+    background-color: var(--color-black);
 }
 
 .txt-black {
-    color: #000;
+    color: var(--color-black);
 }
 
 .bg-Oxford_Blue {
-    background-color: #072655;
+    background-color: var(--color-Oxford_Blue);
 }
 
 .txt-Oxford_Blue {
-    color: #072655;
+    color: var(--color-Oxford_Blue);
 }
 
 .bg-Internal_Klein {
-    background-color: #1c31a5;
+    background-color: var(--color-Internal_Klein);
 }
 
 .txt-Internal_Klein {
-    color: #1c31a5;
+    color: var(--color-Internal_Klein);
 }
