@@ -8,12 +8,12 @@ const HomPage = () => {
 
     return (
         <div>
-            <header>
-                <section >
+            <header className='bg-secundary'>
+                <section className='txt-white'>
                     <h2>Encuentra tu próxima estancia</h2>
                     <h3>Busca ofertas en hoteles, casas y mucho más...</h3>
                     <div className='selector-option'>
-                        <input type="text"/>
+                        <input type="text" />
                         <ListBox />
                     </div>
                 </section>
@@ -25,7 +25,7 @@ const HomPage = () => {
                 <div>
                     <Carrusel />
                 </div>
-                    <CardsVenta />
+                <CardsVenta />
             </main>
         </div>
     )

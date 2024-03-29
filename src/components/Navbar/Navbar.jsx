@@ -18,9 +18,9 @@ const Navbar = () => {
                     <NavLink to={'/blog'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Blog</NavLink>
                 </ul>
             </div>
-            <div class="user">
-                <input type="checkbox" id="menu-toggle" class="hidden" />
-                <label for="menu-toggle" class="icon">
+            <div className="user">
+                <input type="checkbox" id="menu-toggle" className="hidden" />
+                <label htmlFor="menu-toggle" className="icon">
                     <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
                 </label>
                 <div class="menu">

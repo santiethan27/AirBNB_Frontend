@@ -29,3 +29,7 @@
 .txt-secundary {
     color: #191f28;
 }
+
+.border-primary{
+    border-color: #072655 !important;
+}
