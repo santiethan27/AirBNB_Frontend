@@ -19,13 +19,16 @@ const Navbar = () => {
                     <NavLink to={'/Property'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Propiedad</NavLink>
                 </ul>
             </div>
-            
-                <div className='user'>
+            <div class="user">
+                <input type="checkbox" id="menu-toggle" class="hidden" />
+                <label for="menu-toggle" class="icon">
                     <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
-                    <div className="menu">
-                        <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Registrarse</NavLink>  
-                    </div>
+                </label>
+                <div class="menu">
+                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Registrarse</NavLink> 
+                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Registrarse</NavLink> 
                 </div>
+            </div>
             
             
         </nav>

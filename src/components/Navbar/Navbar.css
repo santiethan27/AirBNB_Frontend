@@ -21,11 +21,25 @@ nav{
             }
         }
     }
+    .user{
+        margin-right: 20px;
+        a{
+            text-decoration: none;
+            font-weight: 500;
+            margin: 2px;
+        }
+    }
+    input[type="checkbox"].hidden {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    } 
     .menu {
-        display: none; /* Oculta el menú inicialmente */
+        display: none;
+    }
+    input[type="checkbox"]:checked ~ .menu {
+        display: grid;
+        position: absolute;
     }
     
-    .user:hover .menu {
-        display: block; /* Muestra el menú cuando se hace clic en el ícono */
-    }
 }
