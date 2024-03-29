@@ -8,6 +8,7 @@ import ErrorPage from './pages/Error/ErrorPage';
 import Property from './components/Property/Property';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import Form_Property from './pages/Form_Property/Form_Property';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' element={<HomPage />} />
         <Route path='/auth' element={<RegisterPage />} />
         <Route path='/property' element={<Property />} />
+        <Route path='/form_property' element={<Form_Property />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />

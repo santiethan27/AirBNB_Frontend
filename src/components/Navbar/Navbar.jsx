@@ -24,7 +24,7 @@ const Navbar = () => {
                     <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
                 </label>
                 <div class="menu">
-                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Registrarse</NavLink>
+                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Inicio de Sesion</NavLink>
                     <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Registrarse</NavLink>
                 </div>
             </div>
