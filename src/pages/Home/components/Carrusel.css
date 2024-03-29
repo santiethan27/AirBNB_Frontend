@@ -1,12 +1,10 @@
 .CarouselContainer {
     padding: 2rem;
-    gap: 20px;
 
     .container-img-carrusel {
         img {
-            width: 100%;
-            min-height: 280px;
-            max-height: 330px;
+            min-height: 350px;
+            max-height: 350px;
         }
 
         p {
