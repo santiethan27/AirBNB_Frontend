@@ -1,19 +1,66 @@
-import React from 'react'
-
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./Carrusel.css";
 
 const Carrusel = () => {
-    const Imagen = '/img/Unplash2.jpg';
-    const N = 10
-    const imagenRepetir = Array(N).fill(Imagen)
-    return (
-        <div className='carrusel'>
-            <div className='container-img-carrusel'>
-                {imagenRepetir.map((imagenRepetida, i) => (
-                    <img key={i} src={imagenRepetida} alt={`Imagen ${i}`} />
-                ))}
-            </div>
-        </div>
-    )
-}
+    const effectHover = [
+        {
+            texto: "Hoteles",
+        },
+        {
+            texto: "Cabañas",
+        },
+        {
+            texto: "Fincas",
+        },
+    ];
 
-export default Carrusel
+    const settings = {
+        dots: false,
+        infinite: true,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+    };
+
+    return (
+        <>
+            <div className="CarouselContainer">
+                <div className="container-img-carrusel cursor-pointer">
+                    <Slider {...settings}>
+                        <div>
+                            <img src="/img/Unplash1.jpg" alt="carrusel" />
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, accusamus quo. Mollitia quaerat neque libero. Dicta tempore sunt aut aliquam eos iste impedit quos similique.</p>
+                        </div>
+                        <div>
+                            <img src="/img/Unplash1.jpg" alt="carrusel" />
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, accusamus quo. Mollitia quaerat neque libero. Dicta tempore sunt aut aliquam eos iste impedit quos similique.</p>
+                        </div>
+                        <div>
+                            <img src="/img/Unplash1.jpg" alt="carrusel" />
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, accusamus quo. Mollitia quaerat neque libero. Dicta tempore sunt aut aliquam eos iste impedit quos similique.</p>
+                        </div>
+                        <div>
+                            <img src="/img/Unplash1.jpg" alt="carrusel" />
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, accusamus quo. Mollitia quaerat neque libero. Dicta tempore sunt aut aliquam eos iste impedit quos similique.</p>
+                        </div>
+                        <div>
+                            <img src="/img/Unplash1.jpg" alt="carrusel" />
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, accusamus quo. Mollitia quaerat neque libero. Dicta tempore sunt aut aliquam eos iste impedit quos similique.</p>
+                        </div>
+                        <div>
+                            <img src="/img/Unplash1.jpg" alt="carrusel" />
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate, accusamus quo. Mollitia quaerat neque libero. Dicta tempore sunt aut aliquam eos iste impedit quos similique.</p>
+                        </div>
+                    </Slider>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default Carrusel;

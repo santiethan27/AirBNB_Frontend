@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Navbar.css';
 
@@ -13,9 +13,9 @@ const Navbar = () => {
             </div>
             <div>
                 <ul>
-                    <NavLink to={'/'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Rentar</NavLink>
-                    <NavLink to={'/comprar'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Comprar</NavLink>
-                    <NavLink to={'/blog'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Blog</NavLink>
+                    <NavLink to={'/'} className={'cursor-pointer txt-black'}> <FontAwesomeIcon className='' icon={faCircle} /> Rentar</NavLink>
+                    <NavLink to={'/comprar'} className={'cursor-pointer txt-black'}> <FontAwesomeIcon icon={faCircle} /> Comprar</NavLink>
+                    <NavLink to={'/blog'} className={'cursor-pointer txt-black'}> <FontAwesomeIcon icon={faCircle} /> Blog</NavLink>
                 </ul>
             </div>
             <div className="user">
@@ -23,9 +23,9 @@ const Navbar = () => {
                 <label htmlFor="menu-toggle" className="icon">
                     <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
                 </label>
-                <div class="menu">
-                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Inicio de Sesion</NavLink>
-                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Registrarse</NavLink>
+                <div class="menu bg-white">
+                    <NavLink to={'/auth/login'} className={'cursor-pointer txt-black'}>Inicio de Sesion</NavLink>
+                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'}>Registrarse</NavLink>
                 </div>
             </div>
         </nav>
