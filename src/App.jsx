@@ -11,10 +11,11 @@ import Property from './pages/Property/Property';
 
 function App() {
   return (
-      <Routes>
-        <Route path='/auth' element={<RegisterPage />} />
-        <Route path='/*' element={<MainApp />} />
-      </Routes>
+    <Routes>
+      <Route path='/auth' element={<RegisterPage />} />
+      <Route path='/auth/:option*' element={<RegisterPage />} />
+      <Route path='/*' element={<MainApp />} />
+    </Routes>
   )
 }
 

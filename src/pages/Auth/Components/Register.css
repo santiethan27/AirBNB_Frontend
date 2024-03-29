@@ -8,13 +8,6 @@
     min-height: 100vh;
     position: absolute;
 
-    img {
-        width: 50%;
-        object-fit: cover;
-        margin: 3px;
-        border-radius: 20px;
-    }
-
     .container-register {
         display: flex;
         width: 90%;
@@ -22,6 +15,13 @@
         background-color: white;
         margin: 3.5rem auto;
         border-radius: 20px;
+
+        .img-register {
+            width: 50%;
+            object-fit: cover;
+            margin: 3px;
+            border-radius: 20px;
+        }
 
         .form {
             width: 50%;
@@ -33,9 +33,14 @@
 
             .logo-form {
                 position: absolute;
-                left: 0;
+                left: 1rem;
+                top: .5rem;
                 display: flex;
                 width: 10%;
+
+                img {
+                    width: 50%;
+                }
             }
 
             .register-form {
@@ -114,35 +119,40 @@
 }
 
 @media (max-width: 768px) {
-    .form {
-        width: 100%;
-    }
 
-    .container-register {
-        display: flex;
-        flex-wrap: wrap;
-    }
+    .body-auth {
+        .container-register {
+            display: flex;
+            flex-wrap: wrap;
 
-    .nested {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
+            .img-register {
+                width: 100%;
+                height: auto;
+                margin: 3px;
+                border-radius: 5px;
+            }
 
-    .register-form button {
-        color: #fff;
-        width: 100%;
-        height: 40px;
-        border-radius: 10px;
-        margin-top: 20px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
+            .form {
+                width: 100%;
 
-    .body-auth img {
-        width: 100%;
-        height: auto;
-        margin: 3px;
-        border-radius: 5px;
+                .register-form {
+                    .nested {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 8px;
+                    }
+
+                    button {
+                        color: #fff;
+                        width: 100%;
+                        height: 40px;
+                        border-radius: 10px;
+                        margin-top: 20px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+                }
+            }
+        }
     }
 }
