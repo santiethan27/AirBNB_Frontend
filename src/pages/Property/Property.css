@@ -1,115 +1,138 @@
-*{
-    background-color: var(--color-terceario);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-:root {
-    --color-primario: #072655;
-    --color-secundario: #1C31A5;
-    --color-terceario:#FFFFFF;
-    --color-cuartario:#000000;
-}
-.container_property h1,h2,p{
+.container_property h1,
+h2,
+p {
     margin-left: 1.5%;
-    margin-top: 0.2%; 
+    margin-top: 0.2%;
 }
-.container_property .Img{
+
+.container_property .Img {
     display: flex;
 }
-.Img{
-    .img-firts{
-    width: 50%;
-    border-radius: 10px;
-    margin-left: 1.5%; 
-    } 
+
+.Img {
+    img {
+        width: 45%;
+    }
+
+    .img-firts {
+        width: 50%;
+        border-radius: 10px;
+        margin-left: 1.5%;
+    }
 }
-.img_F{
+
+.img_F {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
-    img{
+
+    img {
         width: 45.5%;
         margin-left: 3%;
         border-radius: 10px;
         margin-top: 2.5%;
     }
 }
-.start{
+
+.start {
     display: flex;
     flex-direction: row-reverse;
     width: 98%;
     margin-top: -2%;
 }
-.userPhone{
+
+.userPhone {
     width: 10%;
-    .userP{
+
+    .userP {
         width: 50%;
         margin-left: 25%;
         margin-top: 10%;
         border-radius: 50%;
     }
-    .sas{
+
+    .sas {
         margin-left: 7rem;
         margin-top: -50%;
     }
 }
-.Comentari{
+
+.Comentari {
     width: 90%;
     margin-left: 0.1%;
     margin-top: 2%;
 }
-.options{
+
+.options {
     display: flex;
     margin-bottom: 2%;
     margin-left: 1.5%;
 }
-.commit{
+
+.commit {
     margin-top: 4.2%;
     margin-right: 10%;
-    width: 50%;   
+    width: 50%;
 }
-.commit p{
+
+.commit p {
     margin-bottom: 1%;
     font-weight: bold;
 }
-.commit button{
-    background-color: var(--color-primario);
+
+.commit button {
     margin-top: 1%;
     border-radius: 7px;
     padding: 0.5rem;
 }
-.commit input{
+
+.commit .price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.commit textarea {
     height: 40%;
     width: 100%;
     border-radius: 10px;
-    border: 1px solid var(--color-primario);
+    border: 1px solid;
 }
+
 .react-calendar__tile abbr {
-    color: var(--color-primario);
+    color: #072655;
 }
+
+abbr {
+    text-decoration: none;
+}
+
 .react-calendar__navigation button {
-    color: var(--color-cuartario); 
+    color: #072655;
 }
-@media(max-width: 400px){
-    .container_property{
-        .img-firts{
-        width: 50%;
-        border-radius: 10px;
-        flex-wrap: wrap; 
-        }
-        .Second_images{
-            margin-top: 0%;
-        }
-        .Third_images{
-            margin-top: 0%;
-        }
-    }
-    .options{
-            display: flex;
+
+@media(max-width: 400px) {
+    .container_property {
+        .img-firts {
+            width: 50%;
+            border-radius: 10px;
             flex-wrap: wrap;
+        }
+
+        .Second_images {
+            margin-top: 0%;
+        }
+
+        .Third_images {
+            margin-top: 0%;
+        }
     }
-    .commit button{
+
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .commit button {
         display: flex;
         justify-content: center;
         margin-top: 1%;

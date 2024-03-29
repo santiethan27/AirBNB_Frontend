@@ -3,14 +3,8 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-:root {
-    --color-primario: #072655;
-    --color-secundario: #1C31A5;
-    --color-terceary: #191F28;
-  }
 
 .body-auth{
-    background-color: var(--color-terceary);
     min-height: 100vh;
     position: absolute;
 }
