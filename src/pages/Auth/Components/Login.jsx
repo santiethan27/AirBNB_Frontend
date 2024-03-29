@@ -11,10 +11,6 @@ function Login({ handleToggle }) {
 
     return (
         <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
-            <div className="logo-form">
-                <img src="../../public/hogar.png" alt="Imagen logo AIRBNB" className='cursor-pointer' />
-                <h2 className='txt-black'>AIRBNB</h2>
-            </div>
             <h1 className="txt-primary">Iniciar sesion</h1>
             <div className="g-input">
                 <input type="email" placeholder="Email"{...register('email', { required: true })}
