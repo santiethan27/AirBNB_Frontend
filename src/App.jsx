@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 import HomePage from './pages/Home/HomePage';
 import RegisterPage from './pages/Auth/RegisterPage';
@@ -12,11 +11,19 @@ import Property from './pages/Property/Property';
 
 function App() {
   return (
+      <Routes>
+        <Route path='/auth' element={<RegisterPage />} />
+        <Route path='/*' element={<MainApp />} />
+      </Routes>
+  )
+}
+
+function MainApp() {
+  return (
     <>
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/auth' element={<RegisterPage />} />
         <Route path='/property' element={<Property />} />
         <Route path='/form_property' element={<Form_Property />} />
         <Route path='*' element={<ErrorPage />} />
@@ -26,4 +33,5 @@ function App() {
   )
 }
 
-export default App
+export default App;
+
