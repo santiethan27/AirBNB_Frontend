@@ -7,7 +7,7 @@ import RegisterPage from './pages/Auth/RegisterPage';
 import ErrorPage from './pages/Error/ErrorPage';
 import Property from './components/Property/Property';
 import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
