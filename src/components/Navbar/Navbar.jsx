@@ -13,9 +13,9 @@ const Navbar = () => {
             </div>
             <div>
                 <ul>
-                    <NavLink to={'/'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Rentar</NavLink>
-                    <NavLink to={'/comprar'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Comprar</NavLink>
-                    <NavLink to={'/blog'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Blog</NavLink>
+                    <NavLink to={'/'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Rentar</NavLink>
+                    <NavLink to={'/comprar'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Comprar</NavLink>
+                    <NavLink to={'/blog'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Blog</NavLink>
                 </ul>
             </div>
             <div class="user">
@@ -24,10 +24,10 @@ const Navbar = () => {
                     <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
                 </label>
                 <div class="menu">
-                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Registrarse</NavLink> 
-                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-Oxford_Blue'>Registrarse</NavLink> 
+                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Registrarse</NavLink>
+                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'} activeclassname='color-primary'>Registrarse</NavLink>
                 </div>
-            </div>  
+            </div>
         </nav>
     )
 }

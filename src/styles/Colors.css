@@ -1,31 +1,31 @@
 .bg-white {
-    background-color: var(--color-white);
+    background-color: #fff;
 }
 
 .txt-white {
-    color: var(--color-white);
+    color: #fff;
 }
 
 .bg-black {
-    background-color: var(--color-black);
+    background-color: #000;
 }
 
 .txt-black {
-    color: var(--color-black);
+    color: #000;
 }
 
-.bg-Oxford_Blue {
-    background-color: var(--color-Oxford_Blue);
+.bg-primary {
+    background-color: #072655;
 }
 
-.txt-Oxford_Blue {
-    color: var(--color-Oxford_Blue);
+.txt-primary {
+    color: #072655;
 }
 
-.bg-Internal_Klein {
-    background-color: var(--color-Internal_Klein);
+.bg-secundary {
+    background-color: #191f28;
 }
 
-.txt-Internal_Klein {
-    color: var(--color-Internal_Klein);
+.txt-secundary {
+    color: #191f28;
 }
