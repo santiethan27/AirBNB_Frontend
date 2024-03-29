@@ -8,6 +8,7 @@ import ErrorPage from './pages/Error/ErrorPage';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Form_Property from './pages/Form_Property/Form_Property';
+import Property from './pages/Property/Property';
 
 function App() {
   return (
