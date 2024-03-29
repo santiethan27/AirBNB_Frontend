@@ -13,6 +13,7 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@headlessui/react": "^1.7.18",
     "nodemon": "^3.1.0",
     "react": "^18.2.0",
     "react-calendar": "^4.8.0",

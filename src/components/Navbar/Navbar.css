@@ -4,36 +4,27 @@ nav{
     height: 60px;
     justify-content: space-between;
     padding: 1rem 2rem;
+    z-index: 100;
     img{
         width: 100%;
         height: 100%;
     }
     div:nth-child(1){
         display: flex;
+        gap: .2rem;
     }
     div:nth-child(2){
         ul{
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             a{
+                font-size: 1.2rem;
                 font-weight: 500;
                 text-decoration: none;
             }
+
         }
     }
-    .user{
-        margin-right: 20px;
-        a{
-            text-decoration: none;
-            font-weight: 500;
-            margin: 2px;
-        }
-    }
-    input[type="checkbox"].hidden {
-        position: absolute;
-        opacity: 0;
-        pointer-events: none;
-    } 
     .menu {
         display: none;
     }
@@ -41,5 +32,7 @@ nav{
         display: grid;
         position: absolute;
     }
-    
+    a:hover{
+        color: var(--color-Internal_Klein);
+    }
 }
