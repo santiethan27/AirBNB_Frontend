@@ -63,7 +63,7 @@ function Form_Property() {
                     <input type="checkbox" {...register('refrigeracion')} />
                     Refrigeración
                 </label>
-           
+
                 <label>
                     <input type="checkbox" {...register('television')} />
                     Televisión
@@ -74,17 +74,14 @@ function Form_Property() {
                 </label>
                 <label>
                     <input type="checkbox" {...register('aire ')} />
-                    Aire 
+                    Aire
                 </label>
-                
+
             </div>
 
             <div className="button-container">
                 <button className="bg-primary" type="submit">Registrar Propiedad</button>
             </div>
-
-
-
         </form>
 
     );

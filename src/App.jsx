@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Form_Property from './pages/Form_Property/Form_Property';
 import Property from './pages/Property/Property';
+import Edit_Profile from './pages/Edit_Profile/Edit_Profile';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function MainApp() {
         <Route path='/' element={<HomePage />} />
         <Route path='/property' element={<Property />} />
         <Route path='/form_property' element={<Form_Property />} />
+        <Route path='edit_profile' element={<Edit_Profile />}/>
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
