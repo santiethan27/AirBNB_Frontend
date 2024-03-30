@@ -25,7 +25,12 @@ const Navbar = () => {
                 </label>
                 <div class="menu bg-white">
                     <NavLink to={'/auth/login'} className={'cursor-pointer txt-black'}>Inicio de Sesion</NavLink>
+<<<<<<< HEAD
                     <NavLink to={'/auth'} className={'cursor-pointer txt-black'}>Registrarse</NavLink>
+=======
+                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'}>Cerrar sesion</NavLink>
+                    <NavLink to={'/edit_profile'} className={'cursor-pointer txt-black'}>Mi perfil</NavLink>
+>>>>>>> 808572b7b83db6401f75107399f73ebabbf613ab
                 </div>
             </div>
         </nav>

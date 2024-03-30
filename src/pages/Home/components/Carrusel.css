@@ -1,4 +1,5 @@
 .CarouselContainer {
+<<<<<<< HEAD
     position: relative;
     padding: 2rem;
     gap: 20px;
@@ -25,3 +26,24 @@
         display: block;
     }
 }
+=======
+    padding: 2rem;
+
+    .container-img-carrusel {
+        img {
+            min-height: 350px;
+            max-height: 350px;
+        }
+
+        p {
+            display: none;
+        }
+
+        p:hover {
+            position: relative;
+            transform: translateY(-300%);
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    }
+}
+>>>>>>> 808572b7b83db6401f75107399f73ebabbf613ab
