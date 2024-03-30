@@ -1,0 +1,27 @@
+.CarouselContainer {
+    position: relative;
+    padding: 2rem;
+    gap: 20px;
+
+    img {
+        width: 96%;
+        min-height: 280px;
+        max-height: 330px;
+        object-fit: cover;
+    }
+    p {
+        position: absolute;
+        top: 40%;
+        transform: translate(-23.7%, 0%);
+        display: none;
+        color: aliceblue;
+        text-align: center;
+        align-content: center;
+        width: 6.333%;
+        height: 25%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .imagenHover:hover p {
+        display: block;
+    }
+}
