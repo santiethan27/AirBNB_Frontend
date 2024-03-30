@@ -2,12 +2,6 @@ import React from 'react'
 import './Form_Property.css'
 import { useForm } from 'react-hook-form';
 
-<<<<<<< HEAD
-function Form_Property(){
-
-    return(
-            <h1>Hola soy el formulario</h1>
-=======
 function Form_Property() {
     const { handleSubmit, formState: { errors }, register } = useForm();
 
@@ -89,8 +83,6 @@ function Form_Property() {
                 <button className="bg-primary" type="submit">Registrar Propiedad</button>
             </div>
         </form>
->>>>>>> 808572b7b83db6401f75107399f73ebabbf613ab
-
     );
 }
 export default Form_Property
