@@ -9,7 +9,6 @@ import Footer from './components/Footer/Footer';
 import Form_Property from './pages/Form_Property/Form_Property';
 import You_Reservation from './pages/Reservation/You_Reservation';
 import Property from './pages/Property/Property';
-import Property from './pages/Property/Property';
 import Edit_Profile from './pages/Edit_Profile/Edit_Profile';
 
 function App() {
