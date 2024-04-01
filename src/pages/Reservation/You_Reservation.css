@@ -1,4 +1,4 @@
-header {
+header.reservation {
     height: 2rem;
     display: flex;
     justify-content: center;
@@ -9,7 +9,7 @@ header {
         font-weight: 700;
     }
 }
-.container {
+.container.reservation {
     display: flex;
     margin: 10px 20px;
     line-height: 2rem;

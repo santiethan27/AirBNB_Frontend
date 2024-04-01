@@ -4,10 +4,10 @@ import "./You_Reservation.css";
 function You_Reservation() {
     return (
         <>
-            <header className="bg-primary">
+            <header className="bg-primary reservation">
                 <p className="txt-white">Tus reservas</p>
             </header>
-            <div className="container">
+            <div className="container reservation">
                 <div className="container-left">
                     <img src="/img/Lago.png" alt="" />
                 </div>
