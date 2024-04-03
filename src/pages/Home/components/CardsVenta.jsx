@@ -1,38 +1,33 @@
 import { faStar } from '@fortawesome/fontawesome-free-solid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
+import { useProperty } from '../../../context/PropertyContext';
 
 const CardsVenta = () => {
-    const Imagen = '/img/Unplash1.jpg';
-    const N = 10
-    const imagenRepetir = Array(N).fill(Imagen)
+    const  { propertysAll, _getPropertys } = useProperty();
 
-    const details = {
-        tittle: "Medellin, Colombia",
-        points: 4.5,
-        price: '400.000',
-        description: 'Apartamento, con hermosas vistas...',
-        time: 'noche.',
-    }
+    useEffect(() => {
+        _getPropertys();
+    }, []);
 
     return (
         <div className='container-img-main txt-black'>
-            {imagenRepetir.map((imagenRepetida, i) => (
+            {propertysAll.map((property) => (
                 <div to={'/property'} className='cursor-pointer'>
                     <NavLink to={'/property'} className='txt-black'>
-                        <img key={i} src={imagenRepetida} alt={`Imagen ${i}`} />
+                        <img key={property.id} src={property.images} alt={property.images} />
                         <div className='container-details'>
-                            <h3 >{details.tittle} </h3>
+                            <h3 >Prueba </h3>
                             <div className='container-price'>
                                 <h5><FontAwesomeIcon icon={faStar} size='1x' /></h5>
-                                <h3>{details.points}</h3>
+                                <h3>{property.rating}</h3>
                             </div>
                         </div>
-                        <p className='txt-description'>{details.description}</p>
+                        <p className='txt-description'>{property.description}</p>
                         <div className='container-price'>
-                            <h3>${details.price}COP</h3>
-                            <p>{details.time}</p>
+                            <h3>$1.200.000 COP</h3>
+                            <p>{property.size}</p>
                         </div>
                     </NavLink>
                 </div>
