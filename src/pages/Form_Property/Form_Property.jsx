@@ -1,13 +1,25 @@
 import React from 'react'
 import './Form_Property.css'
 import { useForm } from 'react-hook-form';
+import { useProperty } from '../../context/PropertyContext';
 
 function Form_Property() {
+
     const { handleSubmit, formState: { errors }, register } = useForm();
 
-    const onSubmit = (data) => {
+    const { _postProperty } = useProperty();
+    
+    const onSubmit = async (data) => {
+        // try {
+        //     const Info = await _postProperty(data);
+        //     console.log(Info)
+        // } catch (error) {
+        //     console.log(error)
+        // }
         console.log(data);
     }
+
+
     return (
 
         <form className="property-form" onSubmit={handleSubmit(onSubmit)}>

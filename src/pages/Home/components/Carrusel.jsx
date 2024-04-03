@@ -10,10 +10,9 @@ const Carrusel = () => {
         infinite: true,
         autoplay: true,
         speed: 3000,
-        speed: 2000,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 5000,
         slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToScroll: 2,
     };
 
     return (

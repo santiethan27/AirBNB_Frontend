@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import './App.css'
 import HomePage from './pages/Home/HomePage';
 import RegisterPage from './pages/Auth/RegisterPage';
@@ -10,14 +10,18 @@ import Form_Property from './pages/Form_Property/Form_Property';
 import You_Reservation from './pages/Reservation/You_Reservation';
 import Property from './pages/Property/Property';
 import Edit_Profile from './pages/Edit_Profile/Edit_Profile';
+import { Route, Router, Routes } from 'react-router-dom';
+import { PropertyProvider } from './context/PropertyContext';
 
 function App() {
   return (
-    <Routes>
-      <Route path='/auth' element={<RegisterPage />} />
-      <Route path='/auth/:option*' element={<RegisterPage />} />
-      <Route path='/*' element={<MainApp />} />
-    </Routes>
+    <PropertyProvider>
+      <Routes>
+        <Route path="/auth" element={<RegisterPage />} />
+        <Route path="/auth/:option" element={<RegisterPage />} />
+        <Route path="/*" element={<MainApp />} />
+      </Routes>
+    </PropertyProvider>
   )
 }
 
@@ -30,7 +34,7 @@ function MainApp() {
         <Route path='/property' element={<Property />} />
         <Route path='/form_property' element={<Form_Property />} />
         <Route path='/you_reservation' element={<You_Reservation />} />
-        <Route path='/edit_profile' element={<Edit_Profile />}/>
+        <Route path='/edit_profile' element={<Edit_Profile />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />

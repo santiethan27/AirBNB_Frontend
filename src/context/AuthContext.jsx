@@ -1,0 +1,89 @@
+import { createContext, useContext, useState } from "react";
+import { AuthContext } from './AuthContext';
+import { deleteUserId, editUserId, getUserId, getUsers, postLoginUser, postRegisterUser } from "../service/auth";
+
+export const AuthContext = createContext();
+
+export const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error("El useAuth debe estar dentro del contexto");
+    }
+}
+export const AuthProvider = ({ children }) => {
+
+    const [user, setUser] = useState(null);
+    const [users, setUsers] = useState([]);
+    const [isAuthen, setIsAuthen] = useState(false);
+    const [errors, setErrors] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [rol, setRol] = useState(null);
+
+    const _getUsers = async () => {
+        try {
+            const res = await getUsers();
+            setUsers(res.data);
+            return res.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const _getProfile = async (userId) => {
+        try {
+            const UserId = await getUserId(userId);
+            return UserId.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const signUp = async (user) => {
+        try {
+            await postRegisterUser(user);
+            await _getUsers();
+        } catch (error) {
+            console.log(error);
+            setErrors(error.response.data);
+        }
+    }
+
+    const login = async (user) => {
+        try {
+            const res = await postLoginUser(user);
+            console.log(res.data);
+            setUser(res.data);
+            setRol(res.data?.rol);
+            setIsAuthen(true)
+        } catch (error) {
+            if (Array.isArray(error.response.data)) {
+                return setErrors(error.response.data);
+            }
+            setErrors([error.response.data.message]);
+        }
+    }
+
+    const _putUserId = async (userId, data) => {
+        try {
+            const res = await editUserId(userId, data);
+            return res.data;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const _deleteUser = async (userId) => {
+        try {
+            const deleteUser = await deleteUserId(userId);
+            if (deleteUser.status === 200) setUsers(users.filter((user) => user._id !== userId));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    return (
+        <AuthContext.Provider value={{ _getUsers, _getProfile, signUp, login, _putUserId, _deleteUser, user, isAuthen, errors, loading, rol }}>
+            {children}
+        </AuthContext.Provider>
+    )
+}
