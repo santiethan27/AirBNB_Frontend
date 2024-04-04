@@ -37,7 +37,7 @@ function MainApp() {
       <Navbar />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/property' element={<Property />} />
+        <Route path='/property/:id' element={<Property />} />
         <Route path='/form_property' element={<Form_Property />} />
         <Route path='/you_reservation' element={<You_Reservation />} />
         <Route path='/edit_profile' element={<Edit_Profile />} />

@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './Property.css'
+import { useProperty } from '../../context/PropertyContext';
+import { useParams } from 'react-router-dom';
 
 function Property() {
   const [date, setDate] = useState(new Date());
   const [showImageList, setShowImageList] = useState(false);
-
+  const {_getProperty} = useProperty();
+  const [Data, setData] = useState([]);
   const onChange = date => {
     setDate(date);
   };
@@ -17,15 +20,24 @@ function Property() {
     setShowImageList(!showImageList);
   };
 
+  let { id } = useParams();
+  console.log(id);
 
-  const imageUrls = [
-    "/img/images_property.jpg",
-    "/img/images_property.jpg",
-    "/img/images_property.jpg",
-    "/img/images_property.jpg",
-    "/img/images_property.jpg",
-    "/img/images_property.jpg",
-  ];
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await _getProperty(id);
+        console.log(response);
+      } catch (error) {
+        console.error("Error al obtener la data:", error);
+      }
+    };
+    fetchData();
+  }, [id, _getProperty]);
+
+
+  const imageUrls = Data.map(item => item.images);
 
   return (
     <div className='container_property'>
@@ -33,6 +45,7 @@ function Property() {
       <div className='Img'>
         <img src="/img/images_property.jpg" className='img-firts' alt="Frist images" />
         <div className='img_F'>
+
           <img src="/img/images_property.jpg" className='Second_images' alt="Second images" />
           <img src="/img/images_property.jpg" className='Third_images' alt="Third_images" />
           <img src="/img/images_property.jpg" alt="Fourth images" />
@@ -46,7 +59,7 @@ function Property() {
           <h2 className='txt-white'>Otras imágenes</h2>
           <div className="item">
             {imageUrls.map((imageUrl, index) => (
-              <img key={index} src={imageUrl} alt={`Image ${index + 1}`} />
+              <img key={Data.id} src={Data.id} alt={`Image ${index + 1}`} />
             ))}
           </div>
         </div>
