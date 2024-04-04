@@ -15,7 +15,7 @@ export const PropertyProvider = ({ children }) => {
 
     const [propertysAll, setPropertysAll] = useState([]);
 
-    const _getProperty = async (propertyId) => {
+    const _getProperty = async (propertyId) => { 
         try {
             const property = await getProperty(propertyId);
             return property.data;
