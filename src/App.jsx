@@ -14,6 +14,7 @@ import { Route, Routes } from 'react-router-dom';
 import { PropertyProvider } from './context/PropertyContext';
 import { AuthProvider } from './context/AuthContext';
 import { CountryProvider } from './context/CountryContext';
+import PropertySale from './pages/PropertySale/PropertySale';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function MainApp() {
         <Route path='/form_property' element={<Form_Property />} />
         <Route path='/you_reservation' element={<You_Reservation />} />
         <Route path='/edit_profile' element={<Edit_Profile />} />
+        <Route path='/comprar' element={<PropertySale/>}/>
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
