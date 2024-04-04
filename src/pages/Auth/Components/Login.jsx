@@ -1,12 +1,25 @@
 import React from "react";
 import './Register.css';
 import { useForm } from "react-hook-form";
+import { useAuth } from "../../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Login({ handleToggle }) {
     const { handleSubmit, formState: { errors }, register } = useForm();
-
-    const onSubmit = (data) => {
-        console.log(data);
+    const { login } = useAuth();
+    const navigate = useNavigate();
+    const onSubmit = async (data) => {
+        try {
+            const formData = new FormData();
+            formData.append("email", data.email);
+            formData.append("password", data.password);
+            const res = await login(formData);
+            if (res == 200) {
+                navigate("/");
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (

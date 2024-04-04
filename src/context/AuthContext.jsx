@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from "react";
-import { AuthContext } from './AuthContext';
 import { deleteUserId, editUserId, getUserId, getUsers, postLoginUser, postRegisterUser } from "../service/auth";
 
 export const AuthContext = createContext();
@@ -9,6 +8,7 @@ export const useAuth = () => {
     if (!context) {
         throw new Error("El useAuth debe estar dentro del contexto");
     }
+    return context;
 }
 export const AuthProvider = ({ children }) => {
 
@@ -40,8 +40,9 @@ export const AuthProvider = ({ children }) => {
 
     const signUp = async (user) => {
         try {
-            await postRegisterUser(user);
+            const res = await postRegisterUser(user);
             await _getUsers();
+            return res.status;
         } catch (error) {
             console.log(error);
             setErrors(error.response.data);
@@ -51,15 +52,12 @@ export const AuthProvider = ({ children }) => {
     const login = async (user) => {
         try {
             const res = await postLoginUser(user);
-            console.log(res.data);
             setUser(res.data);
             setRol(res.data?.rol);
-            setIsAuthen(true)
+            setIsAuthen(true);
+            return res.status;
         } catch (error) {
-            if (Array.isArray(error.response.data)) {
-                return setErrors(error.response.data);
-            }
-            setErrors([error.response.data.message]);
+            console.log(error);
         }
     }
 

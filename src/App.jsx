@@ -10,18 +10,24 @@ import Form_Property from './pages/Form_Property/Form_Property';
 import You_Reservation from './pages/Reservation/You_Reservation';
 import Property from './pages/Property/Property';
 import Edit_Profile from './pages/Edit_Profile/Edit_Profile';
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { PropertyProvider } from './context/PropertyContext';
+import { AuthProvider } from './context/AuthContext';
+import { CountryProvider } from './context/CountryContext';
 
 function App() {
   return (
-    <PropertyProvider>
-      <Routes>
-        <Route path="/auth" element={<RegisterPage />} />
-        <Route path="/auth/:option" element={<RegisterPage />} />
-        <Route path="/*" element={<MainApp />} />
-      </Routes>
-    </PropertyProvider>
+    <AuthProvider>
+      <CountryProvider>
+        <PropertyProvider>
+          <Routes>
+            <Route path="/auth" element={<RegisterPage />} />
+            <Route path="/auth/:option" element={<RegisterPage />} />
+            <Route path="/*" element={<MainApp />} />
+          </Routes>
+        </PropertyProvider>
+      </CountryProvider>
+    </AuthProvider>
   )
 }
 
