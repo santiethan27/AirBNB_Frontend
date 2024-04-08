@@ -1,7 +1,7 @@
 import React from "react";
-import "./You_Reservation.css";
+import "./YouReservation.css";
 
-function You_Reservation() {
+function YouReservation() {
     return (
         <>
             <header className="bg-primary reservation">
@@ -37,4 +37,4 @@ function You_Reservation() {
     );
 }
 
-export default You_Reservation;
+export default YouReservation;
