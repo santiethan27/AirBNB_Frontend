@@ -15,11 +15,13 @@ import { PropertyProvider } from './context/PropertyContext';
 import { AuthProvider } from './context/AuthContext';
 import { CountryProvider } from './context/CountryContext';
 import PropertySale from './pages/PropertySale/PropertySale';
+import { ServiceProvider } from './context/ServiceContext';
 
 function App() {
   return (
     <AuthProvider>
       <CountryProvider>
+        <ServiceProvider>
         <PropertyProvider>
           <Routes>
             <Route path="/auth" element={<RegisterPage />} />
@@ -27,6 +29,7 @@ function App() {
             <Route path="/*" element={<MainApp />} />
           </Routes>
         </PropertyProvider>
+        </ServiceProvider>
       </CountryProvider>
     </AuthProvider>
   )
