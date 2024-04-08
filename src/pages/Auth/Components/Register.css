@@ -15,6 +15,7 @@
         background-color: white;
         margin: 3.5rem auto;
         border-radius: 20px;
+        position: relative;
 
         .img-register {
             width: 50%;
@@ -23,31 +24,38 @@
             border-radius: 20px;
         }
 
+        .logo-form {
+            position: absolute;
+            left: 1rem;
+            top: .5rem;
+            display: flex;
+            width: min-content;
+            height: auto;
+            cursor: pointer;
+            z-index: 100;
+            font-size: 15px;
+            gap: 5px;
+
+            img {
+                height: 30px;
+                width: 30px;
+            }
+        }
+
         .form {
             width: 50%;
-            height: 100%;
+            height: auto;
             display: flex;
             justify-content: center;
+            align-items: center;
             border-radius: 20px;
             position: relative;
 
-            .logo-form {
-                position: absolute;
-                left: 1rem;
-                top: .5rem;
-                display: flex;
-                width: 10%;
-
-                img {
-                    width: 50%;
-                }
-            }
-
             .register-form {
                 width: 100%;
-                padding: 2rem;
+                padding: 1rem;
 
-                input {
+                input:not([type="file"]) {
                     border: none;
                     border-bottom: 1px solid #191f28;
                     margin-bottom: 5px;
@@ -55,6 +63,25 @@
                     height: 50px;
                     outline: none;
                     border-radius: none;
+                }
+
+                input[type="file"] {
+                    cursor: pointer;
+                    color: black;
+                    border-radius: 5px;
+                    border: 1px black solid;
+                    padding: 6px;
+                }
+
+                input[type="file"]::-webkit-file-upload-button {
+                    display: none;
+                }
+
+                select {
+                    border: 1px solid black;
+                    outline: none;
+                    border-radius: 5px;
+                    padding: 6px;
                 }
 
                 h1 {
@@ -80,6 +107,10 @@
                 }
 
                 .g-input {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    position: relative;
                     flex: 1;
                 }
 
@@ -87,10 +118,6 @@
                     display: flex;
                     width: 100%;
                     gap: 8px;
-                }
-
-                .nested input {
-                    margin: 5px;
                 }
             }
         }

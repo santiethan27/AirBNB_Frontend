@@ -68,12 +68,22 @@ function Register({ handleToggle }) {
                     />{errors.birthdate && (<p className="error-message">Este es campo es requerido</p>)}
                 </div>
             </div>
-            <select {...register('country', { required: true })}>
-                {countries?.map((opcion, index) => (
-                    <option key={index} value={opcion.paisCodigo}>{opcion.paisNombre}</option>
-                ))}
-            </select>
-            <input type="file" {...register('photo', { required: true })} />
+            <div className="nested">
+                <div className="g-input">
+                    <label for="fileInput" class="file-label">Pais</label>
+                    <select {...register('country', { required: true })}>
+                        {countries?.map((opcion, index) => (
+                            <option key={index} value={opcion.paisCodigo}>{opcion.paisNombre}</option>
+                        ))}
+                    </select>
+                    {errors.country && (<p className="error-message">Este es campo es requerido</p>)}
+                </div>
+                <div className="g-input">
+                    <label for="fileInput" class="file-label">Foto de perfil</label>
+                    <input type="file" {...register('photo', { required: true })} />
+                    {errors.photo && (<p className="error-message">Este es campo es requerido</p>)}
+                </div>
+            </div>
             <div className="options">
                 <a href="#" className="txt-primary" onClick={handleToggle}>¿Ya tienes cuenta?</a>
             </div>
