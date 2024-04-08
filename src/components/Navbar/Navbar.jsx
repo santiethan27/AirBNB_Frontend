@@ -28,7 +28,7 @@ const Navbar = () => {
         <nav className='bg-white'>
             <Link className='cursor-pointer logo' to={'/'}>
                 <img src="/img/hogar.png" alt="Imagen logo AIRBNB" className='cursor-pointer' />
-                <h2 className='txt-black'>airbnb</h2>
+                <h2 className='txt-primary'>airbnb</h2>
             </Link>
             <div>
                 <ul>
