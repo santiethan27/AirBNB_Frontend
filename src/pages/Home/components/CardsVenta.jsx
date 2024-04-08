@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { useProperty } from '../../../context/PropertyContext';
 
 const CardsVenta = () => {
-    const  { propertysAll, _getPropertys } = useProperty();
+    const { propertysAll, _getPropertys } = useProperty();
 
     useEffect(() => {
         _getPropertys();
@@ -15,8 +15,9 @@ const CardsVenta = () => {
         <div className='container-img-main txt-black'>
             {propertysAll.map((property) => (
                 <div to={'/property'} className='cursor-pointer'>
+                    {console.log(property)}
                     <NavLink to={`/property/${property.id}`} className='txt-black'>
-                        <img key={property.id} src={property.images} alt={property.images} />
+                        <img key={property.id} src={property.images[0]} alt={property.images} />
                         <div className='container-details'>
                             <h3 >Prueba </h3>
                             <div className='container-price'>
