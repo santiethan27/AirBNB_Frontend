@@ -1,9 +1,9 @@
 import React from 'react'
-import './Form_Property.css'
+import './FormProperty.css'
 import { useForm } from 'react-hook-form';
 import { useProperty } from '../../context/PropertyContext';
 
-function Form_Property() {
+function FormProperty() {
 
     const { handleSubmit, formState: { errors }, register } = useForm();
 
@@ -97,4 +97,4 @@ function Form_Property() {
         </form>
     );
 }
-export default Form_Property
+export default FormProperty

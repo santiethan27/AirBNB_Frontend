@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form';
-import './Edit_Profile.css'
+import './EditProfile.css'
 import { useAuth } from '../../context/AuthContext';
 import { useCountry } from "../../context/CountryContext";
-function Edit_Profile() {
+function EditProfile() {
     const { handleSubmit, formState: { errors }, register } = useForm();
     const { _putUserId } = useAuth();
     const { _getCountries, countries } = useCountry();
@@ -65,4 +65,4 @@ function Edit_Profile() {
 
     );
 }
-export default Edit_Profile
+export default EditProfile
