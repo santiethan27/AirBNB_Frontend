@@ -18,19 +18,20 @@ import EditProfile from './pages/EditProfile/EditProfile';
 import YouReservation from './pages/Reservation/YouReservation';
 import Account from './pages/Account/Account';
 import LoginSecurity from './pages/LoginSecurity/LoginSecurity';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   return (
     <AuthProvider>
       <CountryProvider>
         <ServiceProvider>
-        <PropertyProvider>
-          <Routes>
-            <Route path="/auth" element={<RegisterPage />} />
-            <Route path="/auth/:option" element={<RegisterPage />} />
-            <Route path="/*" element={<MainApp />} />
-          </Routes>
-        </PropertyProvider>
+          <PropertyProvider>
+            <Routes>
+              <Route path="/auth" element={<RegisterPage />} />
+              <Route path="/auth/:option" element={<RegisterPage />} />
+              <Route path="/*" element={<MainApp />} />
+            </Routes>
+          </PropertyProvider>
         </ServiceProvider>
       </CountryProvider>
     </AuthProvider>
@@ -44,12 +45,14 @@ function MainApp() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/property/:id' element={<Property />} />
-        <Route path='/form-property' element={<FormProperty />} />
-        <Route path='/you-reservation' element={<YouReservation />} />
-        <Route path='/edit-profile' element={<EditProfile />} />
-        <Route path='/comprar' element={<PropertySale/>}/>
-        <Route path='/account' element={<Account/>}/>
-        <Route path='/login-security' element={<LoginSecurity/>}/>
+        <Route path='/comprar' element={<PropertySale />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path='/form-property' element={<FormProperty />} />
+          <Route path='/you-reservation' element={<YouReservation />} />
+          <Route path='/edit-profile' element={<EditProfile />} />
+          <Route path='/account' element={<Account />} />
+          <Route path='/login-security' element={<LoginSecurity />} />
+        </Route>
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />

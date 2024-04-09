@@ -70,7 +70,7 @@ function Register({ handleToggle }) {
             </div>
             <div className="nested">
                 <div className="g-input">
-                    <label for="fileInput" class="file-label">Pais</label>
+                    <label for="fileInput" className="file-label">Pais</label>
                     <select {...register('country', { required: true })}>
                         {countries?.map((opcion, index) => (
                             <option key={index} value={opcion.paisCodigo}>{opcion.paisNombre}</option>
@@ -79,7 +79,7 @@ function Register({ handleToggle }) {
                     {errors.country && (<p className="error-message">Este es campo es requerido</p>)}
                 </div>
                 <div className="g-input">
-                    <label for="fileInput" class="file-label">Foto de perfil</label>
+                    <label for="fileInput" className="file-label">Foto de perfil</label>
                     <input type="file" {...register('photo', { required: true })} />
                     {errors.photo && (<p className="error-message">Este es campo es requerido</p>)}
                 </div>

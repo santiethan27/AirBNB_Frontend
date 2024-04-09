@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { deleteUserId, editUserId, getUserId, getUsers, postLoginUser, postRegisterUser } from "../service/auth";
+import { deleteUserId, editUserId, getUserId, getUsers, postLoginUser, postRegisterUser, verityTokenRequest } from "../service/auth";
+import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
 
@@ -42,6 +43,8 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await postRegisterUser(user);
             await _getUsers();
+            setIsAuthen(true);
+            Cookies.set("login", res.data?.token);
             return res.status;
         } catch (error) {
             console.log(error);
@@ -55,6 +58,8 @@ export const AuthProvider = ({ children }) => {
             setUser(res.data);
             setRol(res.data?.rol);
             setIsAuthen(true);
+            console.log(res.data);
+            Cookies.set("login", res.data?.token);
             return res.status;
         } catch (error) {
             console.log(error);
@@ -80,7 +85,7 @@ export const AuthProvider = ({ children }) => {
     }
     useEffect(() => {
         async function checkLogin() {
-            const cookies = Cookies.get()
+            const cookies = Cookies.get();
             if (!cookies.login) {
                 setIsAuthen(false);
                 setLoading(false);
