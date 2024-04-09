@@ -20,7 +20,7 @@ function RegisterPage() {
       <div className="container-register">
         <Link to={'/'} className="logo-form">
           <img src="../../public/hogar.png" alt="Imagen logo AIRBNB" className='cursor-pointer' />
-          <h2 className='txt-black'>AIRBNB</h2>
+          <h2 className='txt-primary'>airbnb</h2>
         </Link>
         <div className={`form ${showLogin ? 'login' : ''}`}>
           {showLogin ? <Login handleToggle={handleToggle} /> : <Register handleToggle={handleToggle} />}

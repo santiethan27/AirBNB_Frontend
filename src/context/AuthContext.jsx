@@ -78,9 +78,35 @@ export const AuthProvider = ({ children }) => {
             console.log(error);
         }
     }
+    useEffect(() => {
+        async function checkLogin() {
+            const cookies = Cookies.get()
+            if (!cookies.login) {
+                setIsAuthen(false);
+                setLoading(false);
+                return setUser(null);
+            }
+            try {
+                const res = await verityTokenRequest(cookies.login);
+                if (res.status !== 200) {
+                    setIsAuthen(false);
+                    setLoading(false);
+                    return;
+                }
+                setLoading(false);
+                setIsAuthen(true);
+                return;
+            } catch (error) {
+                setIsAuthen(false);
+                setUser(null);
+                setLoading(false);
+            }
+        }
 
+        checkLogin();
+    }, []);
     return (
-        <AuthContext.Provider value={{ _getUsers, _getProfile, signUp, login, _putUserId, _deleteUser, user, isAuthen, errors, loading, rol }}>
+        <AuthContext.Provider value={{ _getUsers, _getProfile, signUp, login, _putUserId, _deleteUser, user, isAuthen, errors, rol }}>
             {children}
         </AuthContext.Provider>
     )
