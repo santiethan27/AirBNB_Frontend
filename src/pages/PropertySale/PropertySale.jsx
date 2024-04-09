@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Home/HomePage.css';
-import ListBox from '../Home/components/ListBox';
 import Carrusel from '../Home/components/Carrusel';
 import CardsVenta from '../Home/components/CardsVenta';
 
@@ -14,7 +13,6 @@ const PropertySale= ()=>{
                     <h3>Busca ofertas en cabañas, casas y mucho más...</h3>
                     <div className='selector-option'>
                         <input type="text" />
-                        <ListBox />
                     </div>
                 </section>
                 <section>
