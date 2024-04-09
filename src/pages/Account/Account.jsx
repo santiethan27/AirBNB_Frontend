@@ -2,6 +2,7 @@ import React from 'react';
 import './Account.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserEdit, faLock, faSignInAlt, faCalendarPlus } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 function Account() {
     return (
@@ -9,7 +10,7 @@ function Account() {
             <h1 className="txt-primary">Cuenta </h1>
             <div className="account-container">
 
-                <a href="/edit-profile" className="card-link">
+                <Link to={"/edit-profile"} className="card-link">
                     <div className="card">
                         <div className="card-header">
                             <FontAwesomeIcon icon={faUserEdit} className="icon-blue" />
@@ -19,8 +20,8 @@ function Account() {
                             <p>Modifica tus datos personales</p>
                         </div>
                     </div>
-                </a>
-                <a href="/login-security" className="card-link">
+                </Link>
+                <Link to={"/login-security"} className="card-link">
                     <div className="card">
                         <div className="card-header">
                             <FontAwesomeIcon icon={faLock} className="icon-blue" />
@@ -30,8 +31,8 @@ function Account() {
                             <p>Descripción de inicio de sesión y seguridad</p>
                         </div>
                     </div>
-                </a>
-                <a href="/you-reservation" className="card-link">
+                </Link>
+                <Link to={"/you-reservation"} className="card-link">
                     <div className="card">
                         <div className="card-header">
                             <FontAwesomeIcon icon={faCalendarPlus} className="icon-blue" />
@@ -41,8 +42,8 @@ function Account() {
                             <p>Podrás conocer tus reservas y en qué estado se encuentran</p>
                         </div>
                     </div>
-                </a>
-                <a href="/form-property" className="card-link">
+                </Link>
+                <Link to={"/form-property"} className="card-link">
                     <div className="card">
                         <div className="card-header">
                             <FontAwesomeIcon icon={faSignInAlt} className="icon-blue" />
@@ -52,8 +53,8 @@ function Account() {
                             <p>Podrás registrar tus propiedades</p>
                         </div>
                     </div>
-                </a>
-                
+                </Link>
+
             </div>
         </div>
     );
