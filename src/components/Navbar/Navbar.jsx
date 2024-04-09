@@ -3,10 +3,11 @@ import { Link, NavLink } from 'react-router-dom';
 import { faCircle, faCircleUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Navbar.css';
+import { useAuth } from '../../context/AuthContext';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-
+    const { isAuthen } = useAuth();
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuOpen && !event.target.closest('.user')) {
@@ -42,11 +43,19 @@ const Navbar = () => {
                     <FontAwesomeIcon icon={faCircleUser} size='2x' className='cursor-pointer txt-black' />
                 </label>
                 <div className={`menu bg-white ${menuOpen ? 'open' : 'closed'}`}>
-                    <NavLink to={'/auth/login'} className={'cursor-pointer txt-black'}>Inicio de Sesion</NavLink>
-                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'}>Registrarse</NavLink>
-                    <NavLink to={'/auth'} className={'cursor-pointer txt-black'}>Cerrar sesion</NavLink>
-                    <NavLink to={'/account'} className={'cursor-pointer txt-black'}>Cuenta</NavLink>
-           
+                    {isAuthen ? (
+                        <>
+                            <NavLink to={'/account'} className={'cursor-pointer txt-black'}>Cuenta</NavLink>
+                            <NavLink to={'/auth'} className={'cursor-pointer txt-black'}>Cerrar sesion</NavLink>
+                        </>
+
+                    ) :
+                        <>
+                            <NavLink to={'/auth/login'} className={'cursor-pointer txt-black'}>Inicio de Sesion</NavLink>
+                            <NavLink to={'/auth'} className={'cursor-pointer txt-black'}>Registrarse</NavLink>
+                        </>
+                    }
+
                 </div>
             </div>
         </nav>

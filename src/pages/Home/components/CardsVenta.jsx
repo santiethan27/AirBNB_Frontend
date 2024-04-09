@@ -14,7 +14,7 @@ const CardsVenta = () => {
     return (
         <div className='container-img-main txt-black'>
             {propertysAll.map((property) => (
-                <div to={'/property'} className='cursor-pointer'>
+                <div to={'/property'} key={property.id} className='cursor-pointer'>
                     <NavLink to={`/property/${property.id}`} className='txt-black'>
                         <img key={property.id} src={property.images[0]} alt={property.images} />
                         <div className='container-details'>
