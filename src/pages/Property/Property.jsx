@@ -20,16 +20,23 @@ function Property() {
   const handleLastImageClick = () => {
     setShowImageList(!showImageList);
   };
-  //almacena el id de la propiedad
+
   let { id } = useParams();
   const [Data, setData] = useState([]);
   const [Service, setService] = useState([]);
+  //cosnt para almacenar las imagenes
+  const [images, setImages] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await _getProperty(id);
         const servi = await _getService(id);
         setData(response);
+        console.log(response);
+        if (response.images) {
+          setImages(response.images);
+        }
         setService(servi);
       } catch (error) {
         console.error("Error al obtener la data:", error);
@@ -39,105 +46,91 @@ function Property() {
   }, [id, _getProperty]);
 
   return (
-      <div className="container_property">
+    <div className="container_property">
       <h1 className="txt-black">
         Apartamentos con hermosas vistas al bosques.
       </h1>
       <div className="Img">
-        <img
-          src="/img/images_property.jpg"
-          className="img-firts"
-          alt="Frist images"
-        />
+        <img src={images[0]} className="img-firts" alt="Frist images" />
         <div className="img_F">
-          <img
-            src="/img/images_property.jpg"
-            className="Second_images"
-            alt="Second images"
-          />
-          <img
-            src="/img/images_property.jpg"
-            className="Third_images"
-            alt="Third_images"
-          />
-          <img src="/img/images_property.jpg" alt="Fourth images" />
-          <img
-            src="/img/images_property.jpg"
-            alt="Fifth images"
-            onClick={handleLastImageClick}
-            className="last-image"
-          />
+          {images.slice(1, 5).map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`Image ${index + 2}`}
+              className={`image-${index}`}
+              onClick={index === 3 ? handleLastImageClick : null}
+            />
+          ))}
         </div>
       </div>
       {showImageList && (
         <div className="img_F">
           <h2 className="txt-white">Otras imágenes</h2>
           <div className="item">
-            {imageUrls.map((imageUrl, index) => (
-              <img key={Data.id} src={Data.id} alt={`Image ${index + 1}`} />
+            {images.slice(5).map((image, index) => (
+              <img key={index} src={image} alt={`Image ${index + 5}`} />
             ))}
           </div>
         </div>
       )}
-    
-          <div className="title_two">
-            <h2 className="txt-primary">{Data.adress}</h2>
+
+      <div className="title_two">
+        <h2 className="txt-primary">{Data.adress}</h2>
+      </div>
+      <div className="start">
+        <FontAwesomeIcon
+          icon={faStar}
+          size="2x"
+          className="cursor-pointer txt-black"
+        />
+        <p className="txt-black">4.5 (54 RESEÑAS)</p>
+      </div>
+      <div className="userPhone">
+        <img
+          src="/img/userPhone.jpg"
+          alt="Imagen de usuario"
+          className="userP"
+        />
+        <div className="sas">
+          <p className="txt-black">{Data.owner?.first_name}</p>
+          <p className="txt-black">PROPIETARIO</p>
+        </div>
+      </div>
+      <div className="Comentari">
+        <p className="txt-black">{Data.description}</p>
+      </div>
+      {Service.map((service) => (
+        <div key={service.id} className="servi">
+          <h2 className="txt-black">Servicios</h2>
+          <p className="txt-black">{service.name}</p>
+        </div>
+      ))}
+      <div className="options">
+        <div className="Reserva">
+          <h1 className="txt-primary">Haz tu reserva</h1>
+          <Calendar
+            onChange={onChange}
+            value={date}
+            className="custom_calendar"
+          />
+        </div>
+        <div className="commit">
+          <p className="txt-primary">$400.000 COP|noche</p>
+          <div className="price">
+            <p className="txt-black">2 DE ENERO AL 20 Marzo</p>
+            <p className="txt-black">TOTAL: $1.500.000</p>
           </div>
-          <div className="start">
-            <FontAwesomeIcon
-              icon={faStar}
-              size="2x"
-              className="cursor-pointer txt-black"
-            />
-            <p className="txt-black">4.5 (54 RESEÑAS)</p>
-          </div>
-          <div className="userPhone">
-            <img
-              src="/img/userPhone.jpg"
-              alt="Imagen de usuario"
-              className="userP"
-            />
-            <div className="sas">
-              <p className="txt-black">{Data.owner?.first_name}</p>
-              <p className="txt-black">PROPIETARIO</p>
-            </div>
-          </div>
-          <div className="Comentari">
-            <p className="txt-black">{Data.description}</p>
-          </div>
-          {Service.map((service)  => (
-            <div key={service.id} className="servi">
-            <h2 className="txt-black">Servicios</h2>
-            <p className="txt-black">{service.name}</p>
-          </div>
-          ))}
-          <div className="options">
-            <div className="Reserva">
-              <h1 className="txt-primary">Haz tu reserva</h1>
-              <Calendar
-                onChange={onChange}
-                value={date}
-                className="custom_calendar"
-              />
-            </div>
-            <div className="commit">
-              <p className="txt-primary">$400.000 COP|noche</p>
-              <div className="price">
-                <p className="txt-black">2 DE ENERO AL 20 Marzo</p>
-                <p className="txt-black">TOTAL: $1.500.000</p>
-              </div>
-              <p className="txt-secundary">
-                ¿ALGUN DETALLE PARA El PROPIETARIO?
-              </p>
-              <textarea></textarea>
-              <div>
-                <button type="submit" className="bg-primary txt-white">
-                  ENVIAR RESERVA
-                </button>
-              </div>
-            </div>
+          <p className="txt-secundary">¿ALGUN DETALLE PARA El PROPIETARIO?</p>
+          <textarea></textarea>
+          <div>
+            <button type="submit" className="bg-primary txt-white">
+              ENVIAR RESERVA
+            </button>
           </div>
         </div>
+      </div>
+    </div>
   );
 }
 
