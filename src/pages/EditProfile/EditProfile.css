@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.profile-form {
+.profile {
     width: 50%;
     height: 100%;
     display: flex;
@@ -15,6 +15,7 @@
     height: calc(100% - 100px);
     margin-bottom: 20px;
 
+
     h1 {
         text-align: center;
         transition: transform 0.5s ease;
@@ -24,13 +25,9 @@
         transform: translateX(20px);
     }
 
-    .profile-image {
-        display: block;
-        margin: 0 auto;
-        border-radius: 50%;
-        width: 150px;
-        height: 150px;
-        cursor: pointer;
+    .profile-container {
+        display: flex;
+        align-items: flex-start;
     }
 
     .image-container {
@@ -39,9 +36,18 @@
         cursor: pointer;
     }
 
+    .image-container img {
+        border-radius: 50%;
+        width: 270px;
+        height: 270px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+
     .image-container input[type="file"] {
         display: none;
     }
+
     input {
         border: none;
         border-bottom: 1px solid #191f28;
@@ -50,21 +56,34 @@
         height: 50px;
         outline: none;
         border-radius: none;
-  
+
 
 
     }
 
     .f-input {
         flex: 1;
+
     }
-    
+
+    .g-input {
+        display: flex;
+        gap: 6px;
+
+    }
+
+    .l-input {
+        display: flex;
+        gap: 9px;
+    }
+
     .m-input {
         display: flex;
         margin: 30px;
-        display:grid;
+        display: grid;
         grid-template-columns: 1fr repeat(2, 200px);
     }
+
     button {
         justify-content: center;
         color: #fff;
@@ -72,21 +91,22 @@
         border: none;
         height: 40px;
         border-radius: 10px;
-        margin-top: 30px;
+        padding: 10px 20px;
         cursor: pointer;
         transition: background-color 0.3s ease;
         font-size: 16px;
-
-
-        &:hover {
-            background-color: #191f28;
-            transform: scale(1.1);
-        }
+        margin-right: 4;
     }
 
-    .button-container {
-        text-align: center;
+    button:hover {
+        background-color: #191f28;
+        transform: scale(1.1);
     }
     
-
+    .button-container {
+        margin-top: 5px;
+        text-align: center;
+    
+    }
 }
+

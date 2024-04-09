@@ -16,6 +16,7 @@ import { ServiceProvider } from './context/ServiceContext';
 import FormProperty from './pages/FormProperty/FormProperty';
 import EditProfile from './pages/EditProfile/EditProfile';
 import YouReservation from './pages/Reservation/YouReservation';
+import Account from './pages/Account/Account';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function MainApp() {
         <Route path='/you-reservation' element={<YouReservation />} />
         <Route path='/edit-profile' element={<EditProfile />} />
         <Route path='/comprar' element={<PropertySale/>}/>
+        <Route path='/account' element={<Account/>}/>
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />

@@ -45,7 +45,8 @@ const Navbar = () => {
                     <NavLink to={'/auth/login'} className={'cursor-pointer txt-black'}>Inicio de Sesion</NavLink>
                     <NavLink to={'/auth'} className={'cursor-pointer txt-black'}>Registrarse</NavLink>
                     <NavLink to={'/auth'} className={'cursor-pointer txt-black'}>Cerrar sesion</NavLink>
-                    <NavLink to={'/edit_profile'} className={'cursor-pointer txt-black'}>Mi perfil</NavLink>
+                    <NavLink to={'/account'} className={'cursor-pointer txt-black'}>Cuenta</NavLink>
+           
                 </div>
             </div>
         </nav>
