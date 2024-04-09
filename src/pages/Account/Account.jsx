@@ -20,7 +20,7 @@ function Account() {
                         </div>
                     </div>
                 </a>
-                <a href="/inicio-sesion" className="card-link">
+                <a href="/login-security" className="card-link">
                     <div className="card">
                         <div className="card-header">
                             <FontAwesomeIcon icon={faLock} className="icon-blue" />
@@ -53,6 +53,7 @@ function Account() {
                         </div>
                     </div>
                 </a>
+                
             </div>
         </div>
     );

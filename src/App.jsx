@@ -17,6 +17,7 @@ import FormProperty from './pages/FormProperty/FormProperty';
 import EditProfile from './pages/EditProfile/EditProfile';
 import YouReservation from './pages/Reservation/YouReservation';
 import Account from './pages/Account/Account';
+import LoginSecurity from './pages/LoginSecurity/LoginSecurity';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function MainApp() {
         <Route path='/edit-profile' element={<EditProfile />} />
         <Route path='/comprar' element={<PropertySale/>}/>
         <Route path='/account' element={<Account/>}/>
+        <Route path='/login-security' element={<LoginSecurity/>}/>
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       <Footer />
