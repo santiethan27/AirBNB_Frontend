@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
+import { faStar } from "@fortawesome/free-solid-svg-icons";;
 import "./Property.css";
 import { useProperty } from "../../context/PropertyContext";
 import { useParams } from "react-router-dom";
 import { useService } from "../../context/ServiceContext";
+import MyCalendar from './Components/MyCalendar';
 
 function Property() {
-  const [date, setDate] = useState(new Date());
   const [showImageList, setShowImageList] = useState(false);
   const { _getProperty } = useProperty();
   const { _getService } = useService();
-  const onChange = (date) => {
-    setDate(date);
-  };
+
 
   const handleLastImageClick = () => {
     setShowImageList(!showImageList);
@@ -109,11 +105,7 @@ function Property() {
       <div className="options">
         <div className="Reserva">
           <h1 className="txt-primary">Haz tu reserva</h1>
-          <Calendar
-            onChange={onChange}
-            value={date}
-            className="custom_calendar"
-          />
+          <MyCalendar />
         </div>
         <div className="commit">
           <p className="txt-primary">$400.000 COP|noche</p>

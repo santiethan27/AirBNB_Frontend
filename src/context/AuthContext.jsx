@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { deleteUserId, editUserId, getUserId, getUsers, postLoginUser, postRegisterUser, verityTokenRequest } from "../service/auth";
 import Cookies from "js-cookie";
+import { getFavorits, postFavorite } from "../service/favorite";
+import { useFavorte } from "./FavoriteContext";
 
 export const AuthContext = createContext();
 
@@ -15,10 +17,12 @@ export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [users, setUsers] = useState([]);
+    const [favorites, setFavorites] = useState([]);
     const [isAuthen, setIsAuthen] = useState(false);
     const [errors, setErrors] = useState([]);
     const [loading, setLoading] = useState(true);
     const [rol, setRol] = useState(null);
+    const {_getFavorits} = useFavorte();
 
     const _getUsers = async () => {
         try {
@@ -42,6 +46,8 @@ export const AuthProvider = ({ children }) => {
     const signUp = async (user) => {
         try {
             const res = await postRegisterUser(user);
+            const userId = res.data.user.id;
+            await _getFavorits(userId);
             await _getUsers();
             setIsAuthen(true);
             Cookies.set("login", res.data?.token);
@@ -55,6 +61,8 @@ export const AuthProvider = ({ children }) => {
     const login = async (user) => {
         try {
             const res = await postLoginUser(user);
+            const userId = res.data.user.id;
+            await _getFavorits(userId);
             setUser(res.data);
             setRol(res.data?.rol);
             setIsAuthen(true);
@@ -98,8 +106,11 @@ export const AuthProvider = ({ children }) => {
                     setLoading(false);
                     return;
                 }
+                const userId = res.data.user.id;
+                await _getFavorits(userId);
                 setLoading(false);
                 setIsAuthen(true);
+                setUser(res.data);
                 return;
             } catch (error) {
                 setIsAuthen(false);

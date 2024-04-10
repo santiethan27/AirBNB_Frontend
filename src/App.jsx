@@ -19,22 +19,26 @@ import YouReservation from './pages/Reservation/YouReservation';
 import Account from './pages/Account/Account';
 import LoginSecurity from './pages/LoginSecurity/LoginSecurity';
 import ProtectedRoute from './ProtectedRoute';
+import { FavoriteProvider } from './context/FavoriteContext';
 
 function App() {
   return (
-    <AuthProvider>
-      <CountryProvider>
-        <ServiceProvider>
-          <PropertyProvider>
-            <Routes>
-              <Route path="/auth" element={<RegisterPage />} />
-              <Route path="/auth/:option" element={<RegisterPage />} />
-              <Route path="/*" element={<MainApp />} />
-            </Routes>
-          </PropertyProvider>
-        </ServiceProvider>
-      </CountryProvider>
-    </AuthProvider>
+    <FavoriteProvider>
+      <AuthProvider>
+        <CountryProvider>
+          <ServiceProvider>
+            <PropertyProvider>
+
+              <Routes>
+                <Route path="/auth" element={<RegisterPage />} />
+                <Route path="/auth/:option" element={<RegisterPage />} />
+                <Route path="/*" element={<MainApp />} />
+              </Routes>
+            </PropertyProvider>
+          </ServiceProvider>
+        </CountryProvider>
+      </AuthProvider>
+    </FavoriteProvider>
   )
 }
 
