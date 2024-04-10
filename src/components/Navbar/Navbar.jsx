@@ -36,6 +36,7 @@ const Navbar = () => {
                     <NavLink to={'/'} className={'cursor-pointer'}> <FontAwesomeIcon className='' icon={faCircle} /> Rentar</NavLink>
                     <NavLink to={'/comprar'} className={'cursor-pointer'}> <FontAwesomeIcon icon={faCircle} /> Comprar</NavLink>
                     <NavLink to={'/blog'} className={'cursor-pointer'}> <FontAwesomeIcon icon={faCircle} /> Blog</NavLink>
+                    <NavLink to={'/dashboard'} className={'cursor-pointer'}> <FontAwesomeIcon icon={faCircle} />Admin</NavLink>
                 </ul>
             </div>
             <div className="user" onClick={toggleMenu}>

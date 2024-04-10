@@ -19,6 +19,8 @@ import YouReservation from './pages/Reservation/YouReservation';
 import Account from './pages/Account/Account';
 import LoginSecurity from './pages/LoginSecurity/LoginSecurity';
 import ProtectedRoute from './ProtectedRoute';
+import Dashboard from './pages/Dashboard/Dashboard';
+import CrudProperty from './pages/Dashboard/pages/CrudProperty';
 
 function App() {
   return (
@@ -52,8 +54,11 @@ function MainApp() {
           <Route path='/edit-profile' element={<EditProfile />} />
           <Route path='/account' element={<Account />} />
           <Route path='/login-security' element={<LoginSecurity />} />
+
         </Route>
         <Route path='*' element={<ErrorPage />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/crud-property' element={<CrudProperty />} />
       </Routes>
       <Footer />
     </>
