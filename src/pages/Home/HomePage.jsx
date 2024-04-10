@@ -5,17 +5,13 @@ import CardsVenta from "./components/CardsVenta";
 import { useProperty } from "../../context/PropertyContext";
 
 const HomPage = () => {
-  const { propertysAll, _getPropertys } = useProperty();
-  const [searchTerm, setSearchTerm] = useState("");
+  const { propertysAll} = useProperty();
+  const [searchTerm, setSearchTerm] = useState('');
   const [filteredPropertys, setFilteredPropertys] = useState([]);
-
-  useEffect(() => {
-    _getPropertys();
-  }, []);
 
   const handleSearch = () => {
     const result = propertysAll.filter((property) =>
-      property.propertyTypes.toLowerCase().includes(searchTerm.toLowerCase())
+      property.propertyTypes && property.propertyTypes.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredPropertys(result);
   };
@@ -27,11 +23,12 @@ const HomPage = () => {
           <h2>Encuentra tu próxima estancia</h2>
           <h3>Busca ofertas en hoteles, casas y mucho más...</h3>
           <div className="selector-option">
-            <input 
-            type="text" 
-            placeholder="Buscar.."
-            value={searchTerm} 
-            onChange={(e) => setSearchTerm(e.target.value)}/>
+          <input 
+              type="text" 
+              placeholder="Buscar.."
+              value={searchTerm} 
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
             <button className="selector txt-white" onClick={handleSearch}>
               Buscar
             </button>
@@ -48,7 +45,7 @@ const HomPage = () => {
         <div>
           <Carrusel />
         </div>
-        <CardsVenta propertys={filteredPropertys.length > 0 ? filteredPropertys : propertysAll}  />
+        <CardsVenta propertys={filteredPropertys.length > 0 ? filteredPropertys : propertysAll} />
       </main>
     </div>
   );
