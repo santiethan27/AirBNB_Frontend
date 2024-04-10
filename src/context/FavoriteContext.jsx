@@ -8,15 +8,16 @@ export const useFavorte = () => {
     if (!context) {
         throw new Error("El useFavorite debe estar dentro del contexto");
     }
+    return context;
 }
 export const FavoriteProvider = ({ children }) => {
 
-    const [favoriteItem, setFavoriteItem] = useState([]);
+    const [favorites, setFavorites] = useState([]);
 
-    const _getFavorits = async () => {
+    const _getFavorits = async (user) => {
         try {
-            const favorite = await getFavorits();
-            return favorite.data;
+            const favorite = await getFavorits(user);
+            setFavorites(favorite.data);
         } catch (error) {
             console.log(error)
         }
@@ -24,8 +25,11 @@ export const FavoriteProvider = ({ children }) => {
 
     const _postFavorite = async (createFavorite) => {
         try {
-            await postFavorite(createFavorite);
-            await _getFavorits();
+            const formData = new FormData();
+            formData.append("user", createFavorite.user);
+            formData.append("property", createFavorite.property);
+            await postFavorite(formData);
+            await _getFavorits(createFavorite.user);
         } catch (error) {
             console.log(error)
         }
@@ -41,17 +45,17 @@ export const FavoriteProvider = ({ children }) => {
         }
     }
 
-    const _deleteFavorite = async (favoriteId) => {
+    const _deleteFavorite = async (favoriteId, userId) => {
         try {
-            const delFavorite = await deleteFavorite(favoriteId);
-            if (delFavorite.status === 200) setFavoriteItem(favoriteItem.filter((favorite) => favorite._id !== favoriteId))
+            await deleteFavorite(favoriteId);
+            await _getFavorits(userId);
         } catch (error) {
             console.log(error)
         }
     }
 
     return (
-        <FavoriteContext.Provider value={{ _getFavorits, _postFavorite, _editFavorite, _deleteFavorite }}>
+        <FavoriteContext.Provider value={{ _getFavorits, _postFavorite, _editFavorite, _deleteFavorite, favorites }}>
             {children}
         </FavoriteContext.Provider>
     )

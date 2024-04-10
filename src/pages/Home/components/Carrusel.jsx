@@ -1,52 +1,48 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import "./Carrusel.css";
-
-const Carrusel = () => {
-    const settings = {
-        dots: false,
-        infinite: true,
-        autoplay: true,
-        speed: 3000,
-        autoplaySpeed: 5000,
-        slidesToShow: 3,
-        slidesToScroll: 2,
-    };
+import { Pagination } from 'swiper/modules';
+const Carrusel = ({ activeCategory }) => {
+    const imageData = [
+        { title: 'APARTAMENTO', src: '/img/apartamento.png', alt: 'Apartamento' },
+        { title: 'CASA', src: '/img/casa-1.png', alt: 'Casa' },
+        { title: 'HOTEL', src: '/img/casa-1.png', alt: 'Casa' },
+        { title: 'CABAÑA', src: '/img/casa-1.png', alt: 'Casa' },
+    ];
+    const [activeSlideIndex, setActive] = useState(null);
+    const active = (item, index) => {
+        if (index == activeSlideIndex) {
+            activeCategory(null);
+            setActive(null);
+            return;
+        }
+        activeCategory(item.title);
+        setActive(index);
+    }
 
     return (
         <>
-            <div className="CarouselContainer">
-                <div className="container-img-carrusel cursor-pointer">
-                    <Slider {...settings}>
-                        <div className="imagenHover">
-                            <p>Cabaña</p>
-                            <img src="/img/casa-1.png" alt="carrusel" />
-                        </div>
-                        <div className="imagenHover">
-                            <p>Mansion</p>
-                            <img src="/img/mansion-1.png" alt="carrusel" />
-                        </div>
-                        <div className="imagenHover">
-                            <p>Apartamento</p>
-                            <img src="/img/apartamento.png" alt="carrusel" />
-                        </div>
-                        <div className="imagenHover">
-                            <p>Piscina</p>
-                            <img src="/img/Lago.png" alt="carrusel" />
-                        </div>
-                        <div className="imagenHover">
-                            <p>Lote</p>
-                            <img src="/img/Unplash1.jpg" alt="carrusel" />
-                        </div>
-                        <div className="imagenHover">
-                            <p>Motel</p>
-                            <img src="/img/Unplash1.jpg" alt="carrusel" />
-                        </div>
-                    </Slider>
-                </div>
-            </div>
+            <Swiper
+                slidesPerView={'auto'}
+                spaceBetween={30}
+                pagination={{ clickable: true, }}
+                modules={[Pagination]}
+                className="mySwiper">
+                {
+                    imageData.map((item, index) => (
+                        <SwiperSlide key={index} >
+                            <div className={`img-container ${activeSlideIndex === index ? 'active' : ''}`} onClick={() => active(item, index)}>
+                                <img src={item.src} alt={item.alt} />
+                                <div className="title">
+                                    {item.title}
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))
+                }
+            </Swiper>
         </>
     );
 };

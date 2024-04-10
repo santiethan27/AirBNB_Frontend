@@ -48,7 +48,8 @@ header {
         height: 1rem;
         border-radius: 10px 0 0 10px;
         padding: 1rem;
-        font-size: 1.2rem;
+        font-size: .9rem;
+        outline: none;
     }
 
     .selector {
@@ -60,6 +61,11 @@ header {
         text-align: center;
         padding: auto;
         background-color: rgb(93, 168, 143);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(87, 141, 122);
+        }
     }
 
     .options-selector {
@@ -86,19 +92,43 @@ header {
         }
     }
 }
+
 a {
     text-decoration: none;
 }
+
 .container-img-main {
     display: grid;
     grid-template-rows: repeat(auto-fit, minmax(20rem, 1fr));
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     padding: 0rem 2rem;
     gap: 2rem;
+    margin: 1rem 0rem;
+
+    .card {
+        position: relative;
+
+        .fa-heart {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            z-index: 100;
+            color: rgba(0, 0, 0, 0.582);
+            transition: ease 0.5s;
+
+            &:hover {
+                transform: scale(1.5);
+            }
+        }
+
+        .favorite {
+            color: rgba(255, 0, 0, 0.582);
+        }
+    }
 
     img {
         width: 100%;
-        min-height: 280px;
+        min-height: 330px;
         max-height: 330px;
         border-radius: 8px;
     }
@@ -114,7 +144,19 @@ a {
         gap: .5rem;
     }
 
+    .title {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .rating {
+        font-size: 16px;
+    }
+
     .txt-description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         color: var(--color-black-descriptions);
     }
 }
