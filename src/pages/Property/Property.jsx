@@ -29,7 +29,6 @@ function Property() {
         const response = await _getProperty(id);
         const servi = await _getService(id);
         setData(response);
-        console.log(response);
         if (response.images) {
           setImages(response.images);
         }

@@ -19,6 +19,9 @@ import YouReservation from './pages/Reservation/YouReservation';
 import Account from './pages/Account/Account';
 import LoginSecurity from './pages/LoginSecurity/LoginSecurity';
 import ProtectedRoute from './ProtectedRoute';
+import BlogPage from './pages/Blog/BlogPage';
+import { BlogProvider } from './context/BlogContext';
+import FormBlog from './pages/FormBlog/FormBlog';
 import { FavoriteProvider } from './context/FavoriteContext';
 
 function App() {
@@ -27,6 +30,7 @@ function App() {
       <AuthProvider>
         <CountryProvider>
           <ServiceProvider>
+          <BlogProvider>
             <PropertyProvider>
 
               <Routes>
@@ -35,6 +39,7 @@ function App() {
                 <Route path="/*" element={<MainApp />} />
               </Routes>
             </PropertyProvider>
+          </BlogProvider>
           </ServiceProvider>
         </CountryProvider>
       </AuthProvider>
@@ -50,7 +55,9 @@ function MainApp() {
         <Route path='/' element={<HomePage />} />
         <Route path='/property/:id' element={<Property />} />
         <Route path='/comprar' element={<PropertySale />} />
+        <Route path='/blog' element={<BlogPage />} />
         <Route element={<ProtectedRoute />}>
+          <Route path='/form-blog' element={<FormBlog />} />
           <Route path='/form-property' element={<FormProperty />} />
           <Route path='/you-reservation' element={<YouReservation />} />
           <Route path='/edit-profile' element={<EditProfile />} />
