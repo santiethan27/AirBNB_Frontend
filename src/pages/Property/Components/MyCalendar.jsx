@@ -1,69 +1,118 @@
-import React, { useState } from 'react';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
-import moment from 'moment';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
+import React, { useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useReserve } from '../../../context/ReserveContext';
 
-const localizer = momentLocalizer(moment);
+const MyCalendar = ({ setDates, datesReserve, propertyId }) => {
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+    const [invalidRange, setInvalidRange] = useState(false);
+    const { reserves, _getReserve } = useReserve();
+    useEffect(() => {
+        const getData = async () => {
+            await _getReserve(propertyId);
+        }
+        getData();
+    }, [])
 
-function MyCalendar() {
-    const [selectedDates, setSelectedDates] = useState([]);
-
-    const handleSelectSlot = ({ start }) => {
-        const selectedStart = new Date(start);
-
-        // Limpiamos la selección previa
-        setSelectedDates([]);
-
-        // Agregamos el día seleccionado
-        setSelectedDates([selectedStart]);
-
-        // Agregamos los dos días siguientes
-        const nextDay1 = new Date(selectedStart);
-        nextDay1.setDate(nextDay1.getDate() + 1);
-        const nextDay2 = new Date(selectedStart);
-        nextDay2.setDate(nextDay2.getDate() + 2);
-
-        setSelectedDates(prevDates => [...prevDates, nextDay1, nextDay2]);
+    const handleStartDateChange = (date) => {
+        setStartDate(date);
+        if (endDate && date > endDate) {
+            setEndDate(null);
+        }
+        setInvalidRange(false);
+    };
+    const handleEndDateChange = (date) => {
+        setEndDate(date);
+        if (!startDate) {
+            setEndDate(null);
+            return;
+        }
+        if (startDate && date < startDate) {
+            setStartDate(null);
+        }
+        setInvalidRange(false);
     };
 
-    const eventStyleGetter = (event, start, end, isSelected) => {
-        const style = {
-            backgroundColor: isSelected ? 'blue' : 'green',
-            borderRadius: '0px',
-            opacity: 0.8,
-            color: 'white',
-            border: '0px',
-            display: 'block'
-        };
-        return {
-            style: style
-        };
+    useEffect(() => {
+        if (startDate && endDate) {
+            handleReservation();
+        }
+    }, [endDate]);
+
+    const handleReservation = () => {
+        console.log(startDate, endDate)
+        let totalDays = 0;
+        const isRangeReserved = reserves.some((reservedDate) => {
+            const currentDate = new Date(reservedDate.startDate + 'T00:00:00');
+            const finDate = new Date(reservedDate.endDate + 'T23:59:59');
+            return (
+                (startDate <= currentDate && endDate >= currentDate) ||
+                (startDate <= finDate && endDate >= finDate) ||
+                (startDate >= currentDate && endDate <= finDate)
+            );
+        });
+
+        const diffTime = Math.abs(endDate - startDate);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        totalDays = diffDays;
+        if (isRangeReserved) {
+            setInvalidRange(true);
+            setStartDate(null);
+            setEndDate(null);
+            return;
+        }
+
+        setDates([{ startDate, endDate, totalDays }]);
+        setStartDate(null);
+        setEndDate(null);
     };
+
+    const disabledDates = reserves?.map((reservedDate) => {
+        const dates = [];
+        const currentDate = new Date(reservedDate.startDate + 'T00:00:00');
+        const finDate = new Date(reservedDate.endDate + 'T23:59:59');
+        while (currentDate <= finDate) {
+            dates.push(new Date(currentDate));
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+        return dates;
+    }).flat();
 
     return (
-        <div style={{ height: 500 }}>
-            <Calendar
-                localizer={localizer}
-                events={selectedDates.map(date => ({ start: date, end: moment(date).add(1, 'days').toDate(), title: 'Selected Date' }))}
-                selectable
-                onSelectSlot={handleSelectSlot}
-                views={['month']}
-                step={60}
-                showMultiDayTimes
-                defaultDate={new Date()}
-                eventPropGetter={eventStyleGetter}
+        <div>
+            <h2>Selecciona un rango de fechas:</h2>
+            <DatePicker
+                selected={startDate}
+                onChange={handleStartDateChange}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+                minDate={new Date()}
+                excludeDates={disabledDates}
+                placeholderText="Fecha de inicio"
             />
-            <div>
-                <h2>Seleccionaste las siguientes fechas:</h2>
-                <ul>
-                    {selectedDates.map((date, index) => (
-                        <li key={index}>{date.toDateString()}</li>
-                    ))}
-                </ul>
-            </div>
+            <DatePicker
+                selected={endDate}
+                onChange={handleEndDateChange}
+                selectsEnd
+                startDate={startDate}
+                endDate={endDate}
+                minDate={startDate}
+                excludeDates={disabledDates}
+                placeholderText="Fecha de fin"
+            />
+            {invalidRange && <p style={{ color: 'red' }}>El rango seleccionado no está disponible, por favor selecciona otro.</p>}
+            {
+                datesReserve?.map((reservedDate, index) => (
+                    <div key={index}>
+                        <span>Reservado: {reservedDate.startDate.toLocaleDateString()} - {reservedDate.endDate.toLocaleDateString()}</span>
+                    </div>
+                ))
+
+            }
         </div>
     );
-}
+};
 
 export default MyCalendar;
-
