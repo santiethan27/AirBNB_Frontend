@@ -22,9 +22,10 @@ import ProtectedRoute from './ProtectedRoute';
 import BlogPage from './pages/Blog/BlogPage';
 import { BlogProvider } from './context/BlogContext';
 import FormBlog from './pages/FormBlog/FormBlog';
-import { FavoriteProvider } from './context/FavoriteContext';
 import Dashboard from './pages/Dashboard/Dashboard';
 import CrudProperty from './pages/Dashboard/pages/CrudProperty';
+import Favorite from './pages/Favorite/Favorite';
+import { FavoriteProvider } from './context/FavoriteContext';
 import { ReserveProvider } from './context/ReserveContext';
 
 function App() {
@@ -72,6 +73,7 @@ function MainApp() {
         <Route path='*' element={<ErrorPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/crud-property' element={<CrudProperty />} />
+        <Route path='/favorite' element={<Favorite />} />
       </Routes>
       <Footer />
     </>
