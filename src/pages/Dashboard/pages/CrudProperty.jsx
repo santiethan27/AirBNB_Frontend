@@ -18,7 +18,7 @@ function CrudProperty() {
   };
 
   const handleFilterChange = (event) => {
-    setFilter(event.target.value); // Use value directly for better performance
+    setFilter(event.target.value); 
   };
 
   const filteredProperties = properties.filter((property) =>

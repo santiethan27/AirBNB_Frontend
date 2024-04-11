@@ -1,7 +1,7 @@
 import React from 'react';
 import './Account.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserEdit, faLock, faSignInAlt, faCalendarPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUserEdit, faLock, faSignInAlt, faCalendarPlus,faHeart  } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 function Account() {
@@ -51,6 +51,17 @@ function Account() {
                         </div>
                         <div className="card-body">
                             <p>Podrás registrar tus propiedades</p>
+                        </div>
+                    </div>
+                </Link>
+                <Link to={"/favorite"} className="card-link">
+                    <div className="card">
+                        <div className="card-header">
+                        <FontAwesomeIcon icon={faHeart} className="icon-blue" />
+                            <h3 className="txt-primary"> Mis Favoritos</h3>
+                        </div>
+                        <div className="card-body">
+                            <p>Podrás ver todos los favoritos de tu Elección</p>
                         </div>
                     </div>
                 </Link>
