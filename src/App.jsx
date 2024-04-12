@@ -63,6 +63,7 @@ function MainApp() {
         
         <Route element={<ProtectedRoute />}>
           <Route path='/form-blog' element={<FormBlog />} />
+          <Route path='/blog' element={<BlogPage />} />
           <Route path='/form-property' element={<FormProperty />} />
           <Route path='/you-reservation' element={<YouReservation />} />
           <Route path='/edit-profile' element={<EditProfile />} />
