@@ -26,6 +26,7 @@ import { FavoriteProvider } from './context/FavoriteContext';
 import Dashboard from './pages/Dashboard/Dashboard';
 import CrudProperty from './pages/Dashboard/pages/CrudProperty';
 
+
 function App() {
   return (
     <FavoriteProvider>
@@ -57,7 +58,7 @@ function MainApp() {
         <Route path='/' element={<HomePage />} />
         <Route path='/property/:id' element={<Property />} />
         <Route path='/comprar' element={<PropertySale />} />
-        <Route path='/blog' element={<BlogPage />} />
+        
         <Route element={<ProtectedRoute />}>
           <Route path='/form-blog' element={<FormBlog />} />
           <Route path='/form-property' element={<FormProperty />} />
@@ -70,6 +71,7 @@ function MainApp() {
         <Route path='*' element={<ErrorPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/crud-property' element={<CrudProperty />} />
+        <Route path='/blog' element={<BlogPage />} />
       </Routes>
       <Footer />
     </>

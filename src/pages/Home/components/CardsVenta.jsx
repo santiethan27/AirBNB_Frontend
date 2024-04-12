@@ -30,7 +30,7 @@ const CardsVenta = ({ properties }) => {
                     <NavLink to={`/property/${property.id}`} className='txt-black'>
                         <img key={property.id} src={property.images[0]} alt={property.images} />
                         <div className='container-details'>
-                            <p className='title'>{property.city.ciudadNombre}, {property.country.paisNombre} </p>
+                            {/* <p className='title'>{property.city.ciudadNombre}, {property.country.paisNombre} </p> */}
                             <div className='container-price'>
                                 <h5><FontAwesomeIcon icon={faStar} size='1x' /></h5>
                                 <p className='rating'>{property.rating}</p>
