@@ -8,26 +8,26 @@ import { useService } from "../../context/ServiceContext";
 import MyCalendar from './Components/MyCalendar';
 
 function Property() {
+  let { id } = useParams();
   const [showImageList, setShowImageList] = useState(false);
   const { _getProperty } = useProperty();
   const { _getService } = useService();
-
-
+  const [propertyId, setPropertyId] = useState(id);
   const handleLastImageClick = () => {
     setShowImageList(!showImageList);
   };
 
-  let { id } = useParams();
   const [Data, setData] = useState([]);
   const [Service, setService] = useState([]);
-  //cosnt para almacenar las imagenes
   const [images, setImages] = useState([]);
+  const [dates, setDates] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await _getProperty(id);
         const servi = await _getService(id);
+        setPropertyId(id);
         setData(response);
         if (response.images) {
           setImages(response.images);
@@ -104,13 +104,19 @@ function Property() {
       <div className="options">
         <div className="Reserva">
           <h1 className="txt-primary">Haz tu reserva</h1>
-          <MyCalendar />
+          <MyCalendar setDates={setDates} datesReserve={dates} propertyId={propertyId} />
         </div>
         <div className="commit">
-          <p className="txt-primary">$400.000 COP|noche</p>
+          <p className="txt-primary">${Data.price} COP|noche</p>
           <div className="price">
-            <p className="txt-black">2 DE ENERO AL 20 Marzo</p>
-            <p className="txt-black">TOTAL: $1.500.000</p>
+            {
+              dates?.map((reservedDate, index) => (
+                <>
+                  <p className="txt-black">{reservedDate.startDate.toLocaleDateString()} AL {reservedDate.endDate.toLocaleDateString()} - ({reservedDate.totalDays}) Noches</p>
+                  <p className="txt-black">TOTAL: ${Data.price * reservedDate.totalDays}</p>
+                </>
+              ))
+            }
           </div>
           <p className="txt-secundary">¿ALGUN DETALLE PARA El PROPIETARIO?</p>
           <textarea></textarea>

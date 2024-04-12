@@ -22,10 +22,11 @@ import ProtectedRoute from './ProtectedRoute';
 import BlogPage from './pages/Blog/BlogPage';
 import { BlogProvider } from './context/BlogContext';
 import FormBlog from './pages/FormBlog/FormBlog';
-import { FavoriteProvider } from './context/FavoriteContext';
 import Dashboard from './pages/Dashboard/Dashboard';
 import CrudProperty from './pages/Dashboard/pages/CrudProperty';
-
+import Favorite from './pages/Favorite/Favorite';
+import { FavoriteProvider } from './context/FavoriteContext';
+import { ReserveProvider } from './context/ReserveContext';
 
 function App() {
   return (
@@ -33,16 +34,17 @@ function App() {
       <AuthProvider>
         <CountryProvider>
           <ServiceProvider>
-          <BlogProvider>
-            <PropertyProvider>
-
-              <Routes>
-                <Route path="/auth" element={<RegisterPage />} />
-                <Route path="/auth/:option" element={<RegisterPage />} />
-                <Route path="/*" element={<MainApp />} />
-              </Routes>
-            </PropertyProvider>
-          </BlogProvider>
+            <BlogProvider>
+              <PropertyProvider>
+                <ReserveProvider>
+                  <Routes>
+                    <Route path="/auth" element={<RegisterPage />} />
+                    <Route path="/auth/:option" element={<RegisterPage />} />
+                    <Route path="/*" element={<MainApp />} />
+                  </Routes>
+                </ReserveProvider>
+              </PropertyProvider>
+            </BlogProvider>
           </ServiceProvider>
         </CountryProvider>
       </AuthProvider>
@@ -71,7 +73,7 @@ function MainApp() {
         <Route path='*' element={<ErrorPage />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/crud-property' element={<CrudProperty />} />
-        <Route path='/blog' element={<BlogPage />} />
+        <Route path='/favorite' element={<Favorite />} />
       </Routes>
       <Footer />
     </>

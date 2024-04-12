@@ -5,6 +5,10 @@ p {
     margin-top: 0.2%;
 }
 
+.container_property {
+    height: auto;
+}
+
 .container_property .Img {
     display: flex;
 }
@@ -34,13 +38,15 @@ p {
         border-radius: 10px;
     }
 }
-.item{
+
+.item {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     padding: 2px;
-    img{
+
+    img {
         width: 40%;
     }
 }
@@ -84,6 +90,7 @@ p {
     margin-top: 4.2%;
     margin-right: 10%;
     width: 50%;
+    height: max-content;
 }
 
 .commit p {
